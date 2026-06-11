@@ -1,0 +1,1050 @@
+<html lang="th"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ตารางกะ 2026</title>
+<style>
+:root{
+  --bg:#f0f4f8;
+  --surface:#ffffff;
+  --border:#e4e9f0;
+  --border2:#c8d3e0;
+  --txt:#1a2332;
+  --txt2:#4a5568;
+  --txt3:#8fa0b5;
+
+  --navy:#0d1f3c;
+  --navy2:#142a50;
+  --navy3:#1c3665;
+
+  --primary:#2563eb;
+  --primary-h:#1d4ed8;
+  --primary-l:#eff6ff;
+
+  --morning:#b45309;
+  --morning-bg:#fef3c7;
+  --morning-border:#fcd34d;
+  --morning-header:#92400e;
+
+  --evening:#5b21b6;
+  --evening-bg:#f5f3ff;
+  --evening-border:#c4b5fd;
+  --evening-header:#4c1d95;
+
+  --os:#065f46;
+  --os-bg:#ecfdf5;
+  --os-border:#6ee7b7;
+
+  --hol:#dc2626;
+  --hol-bg:#fef2f2;
+  --hol-border:#fca5a5;
+
+  --pro:#c2410c;
+  --pro-bg:#fff7ed;
+  --pro-border:#fed7aa;
+
+  --last:#6d28d9;
+  --last-bg:#f5f3ff;
+  --last-border:#ddd6fe;
+
+  --radius:10px;
+  --radius-sm:6px;
+  --shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.06);
+  --shadow-md:0 4px 12px rgba(0,0,0,.1),0 2px 4px rgba(0,0,0,.06);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans Thai',sans-serif;font-size:13px;background:var(--bg);color:var(--txt);min-height:100vh}
+
+/* ═══ NAV ═══ */
+.nav{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);
+  color:#fff;padding:0 24px;display:flex;align-items:stretch;
+  position:sticky;top:0;z-index:200;
+  box-shadow:0 2px 12px rgba(0,0,0,.25);
+}
+.nav-brand{
+  display:flex;align-items:center;gap:10px;
+  font-size:16px;font-weight:800;letter-spacing:-.3px;
+  padding:14px 0;margin-right:24px;white-space:nowrap;color:#fff;
+  border-right:1px solid rgba(255,255,255,.12);padding-right:24px;
+}
+.nav-brand .brand-icon{
+  width:32px;height:32px;background:linear-gradient(135deg,#3b82f6,#8b5cf6);
+  border-radius:8px;display:flex;align-items:center;justify-content:center;
+  font-size:16px;box-shadow:0 2px 8px rgba(59,130,246,.4);
+}
+.nav-tabs{display:flex;flex:1;gap:0}
+.nav-tab{
+  padding:0 20px;cursor:pointer;display:flex;align-items:center;gap:7px;
+  font-size:13px;font-weight:500;color:rgba(255,255,255,.55);
+  border:none;background:none;
+  border-bottom:3px solid transparent;
+  transition:all .18s;white-space:nowrap;position:relative;
+}
+.nav-tab:hover{color:rgba(255,255,255,.9);background:rgba(255,255,255,.06)}
+.nav-tab.active{color:#fff;border-bottom-color:#60a5fa;font-weight:700}
+.nav-tab.active::after{
+  content:'';position:absolute;bottom:0;left:20px;right:20px;
+  height:3px;background:linear-gradient(90deg,#60a5fa,#a78bfa);
+  border-radius:3px 3px 0 0;
+}
+.nav-tab i{font-size:17px}
+.nav-actions{display:flex;align-items:center;gap:6px;padding:10px 0;margin-left:16px;border-left:1px solid rgba(255,255,255,.12);padding-left:16px}
+
+/* buttons */
+.btn{cursor:pointer;border:none;border-radius:var(--radius-sm);padding:7px 14px;font-size:12px;font-weight:600;display:inline-flex;align-items:center;gap:5px;transition:all .15s;white-space:nowrap}
+.btn i{font-size:15px}
+.btn-save{background:#fff;color:var(--navy);box-shadow:var(--shadow)}
+.btn-save:hover{background:#f0f9ff;transform:translateY(-1px);box-shadow:var(--shadow-md)}
+.btn-save.unsaved{background:#fef2f2;color:#991b1b;animation:pulse 1.4s infinite}
+.btn-saveas{background:rgba(255,255,255,.12);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.15);padding:6px 10px;font-size:11px}
+.btn-saveas:hover{background:rgba(255,255,255,.2);color:#fff}
+.btn-print{background:rgba(255,255,255,.12);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.15)}
+.btn-print:hover{background:rgba(255,255,255,.2);color:#fff}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(220,38,38,.3)}50%{opacity:.8;box-shadow:0 0 0 5px rgba(220,38,38,0)}}
+
+/* ═══ PAGES ═══ */
+.page{display:none;padding:20px 24px;max-width:100%}
+.page.active{display:block}
+
+/* ═══ UNSAVED BANNER ═══ */
+.unsaved-banner{
+  display:none;
+  background:linear-gradient(90deg,#fffbeb,#fef3c7);
+  border:1px solid var(--morning-border);
+  border-radius:var(--radius);
+  padding:10px 16px;margin-bottom:14px;
+  font-size:12px;font-weight:600;color:#92400e;
+  align-items:center;gap:8px;
+}
+.unsaved-banner i{font-size:16px;color:var(--morning)}
+
+/* ═══ PERIOD BAR ═══ */
+.period-bar{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:14px 20px;margin-bottom:16px;
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  box-shadow:var(--shadow);
+}
+.period-info{flex:1;min-width:200px}
+.period-title{font-size:15px;font-weight:800;color:var(--txt);letter-spacing:-.2px}
+.period-sub{font-size:12px;color:var(--txt2);margin-top:3px}
+.period-nav{display:flex;gap:6px;align-items:center}
+.period-select{
+  border:1px solid var(--border2);border-radius:var(--radius-sm);
+  padding:8px 12px;font-size:13px;background:var(--surface);
+  color:var(--txt);cursor:pointer;min-width:260px;
+  box-shadow:var(--shadow);
+}
+.period-select:focus{outline:2px solid var(--primary);border-color:transparent}
+.btn-nav{
+  background:var(--surface);border:1px solid var(--border2);
+  color:var(--txt2);border-radius:var(--radius-sm);
+  padding:8px 12px;cursor:pointer;font-size:13px;
+  transition:all .15s;box-shadow:var(--shadow);
+}
+.btn-nav:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-1px)}
+.btn-clear{
+  background:var(--hol-bg);border:1px solid var(--hol-border);
+  color:var(--hol);border-radius:var(--radius-sm);
+  padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;
+  transition:all .15s;
+}
+.btn-clear:hover{background:var(--hol);color:#fff}
+
+/* ═══ LEGEND ═══ */
+.legend{
+  display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;
+  font-size:11px;align-items:center;color:var(--txt2);
+}
+.leg-item{display:flex;align-items:center;gap:5px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:4px 10px;box-shadow:var(--shadow)}
+.leg-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0}
+.leg-hint{font-size:11px;color:var(--txt3);padding:4px 0}
+
+/* ═══ TABLE WRAPPER ═══ */
+.tbl-wrap{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  margin-bottom:16px;
+  box-shadow:var(--shadow-md);
+}
+.tbl-scroll{overflow-x:auto}
+table{border-collapse:collapse;font-size:12px;width:100%}
+th,td{border:1px solid var(--border);padding:5px 7px;text-align:center;white-space:nowrap}
+
+/* ═══ STICKY COLS ═══ */
+.sc0{position:sticky;left:0;z-index:3;min-width:140px;text-align:left}
+.sc1{position:sticky;left:140px;z-index:3;min-width:46px}
+.sc2{position:sticky;left:186px;z-index:3;min-width:38px}
+.sc3{position:sticky;left:224px;z-index:3;min-width:64px}
+.sc-hdr{position:sticky;left:0;z-index:4;min-width:288px;background:#0f172a}
+
+/* ═══ SECTION HEADERS ═══ */
+.sh-morning{
+  background:linear-gradient(90deg,#78350f,#92400e);
+  color:#fff;padding:10px 16px!important;text-align:left!important;
+  font-size:13px;font-weight:700;letter-spacing:.1px;
+  border-bottom:2px solid #b45309!important;
+}
+.sh-evening{
+  background:linear-gradient(90deg,#3b0764,#4c1d95);
+  color:#fff;padding:10px 16px!important;text-align:left!important;
+  font-size:13px;font-weight:700;letter-spacing:.1px;
+  border-bottom:2px solid #6d28d9!important;
+}
+
+/* ═══ MONTH HEADER ═══ */
+.mh{font-size:11px;font-weight:700;padding:5px 6px;color:#fff;letter-spacing:.3px}
+.mh-even{background:#1e3a8a}
+.mh-odd{background:#1d4ed8}
+th.mh-label{background:#0f172a;color:#64748b;font-size:10px;padding:4px 6px;letter-spacing:.3px;text-transform:uppercase}
+
+/* ═══ DATE HEADERS ═══ */
+th.date-hdr{
+  font-size:13px;font-weight:800;color:#e2e8f0;
+  padding:5px 6px;background:#1e293b;
+  border-color:#334155!important;
+}
+th.date-hdr.wk-s{border-left:2px solid #475569!important}
+th.date-hdr.is-hol{background:#1a1f2e;color:#fca5a5}
+th.date-hdr.is-last{background:#1e1040;color:#c4b5fd}
+th.date-hdr.is-pro{background:#1a1500;color:#fbbf24}
+
+/* ═══ DOW ROW ═══ */
+.dh-row th{background:#0f172a;color:#64748b;font-size:10px;padding:3px 5px;border-color:#1e293b!important;letter-spacing:.2px}
+.dh-row th.wk-s{border-left:2px solid #334155!important}
+.dh-row .sc0,.dh-row .sc1,.dh-row .sc2,.dh-row .sc3{background:#0f172a}
+th.dow-we{color:#f87171!important}
+th.dow-mon{color:#60a5fa!important}
+
+/* ═══ EMP HEADER ROW ═══ */
+.emp-hdr th{background:#f8fafc;color:var(--txt2);font-size:11px;font-weight:600;letter-spacing:.2px;border-bottom:2px solid var(--border2)!important}
+.emp-hdr .sc0,.emp-hdr .sc1,.emp-hdr .sc2,.emp-hdr .sc3{background:#f8fafc}
+
+/* ═══ STICKY CELL BG ═══ */
+td.sc0,td.sc1,td.sc2,td.sc3{background:#fff}
+td.sc0{font-weight:500;font-size:12px}
+
+/* ═══ OS ROWS ═══ */
+.os-sep-row td{background:#f0fdf9;color:var(--os);font-size:11px;font-weight:700;border-top:2px solid #a7f3d0!important}
+.os-sep-row td.sc0,.os-sep-row td.sc1,.os-sep-row td.sc2,.os-sep-row td.sc3{background:#f0fdf9}
+.os-row td{background:#f7fffe}
+.os-row td.sc0,.os-row td.sc1,.os-row td.sc2,.os-row td.sc3{background:#f0fdf9}
+
+/* ═══ CELL STATES ═══ */
+.cW{background:#fff;color:#374151}
+.cH{background:#fef2f2;color:var(--hol);font-weight:700}
+.cP{background:#fffbeb;color:#92400e}
+.cL{background:#f5f3ff;color:var(--last);font-weight:700;font-size:10px}
+.cLH{background:#fef2f2;color:var(--hol);font-weight:700}
+.cOH{background:#fee2e2;color:#991b1b;font-weight:700;box-shadow:inset 0 0 0 2px #f87171}
+.cOW{background:#f0fdf4;color:#166534;font-weight:700;box-shadow:inset 0 0 0 2px #4ade80}
+td.clickable{cursor:pointer;transition:filter .12s}
+td.clickable:hover{filter:brightness(.92);transform:scale(1)}
+.wk-s{border-left:2px solid var(--border2)!important}
+
+/* ═══ EDITABLE CELL ═══ */
+.ec{cursor:pointer;transition:background .12s}
+.ec:hover{background:#fef9e7!important;color:#92400e!important}
+
+/* ═══ BADGES ═══ */
+.bm{background:var(--morning-bg);color:var(--morning);border:1px solid var(--morning-border);border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;display:inline-block;letter-spacing:.2px}
+.be{background:var(--evening-bg);color:var(--evening);border:1px solid var(--evening-border);border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;display:inline-block;letter-spacing:.2px}
+.bo{background:var(--os-bg);color:var(--os);border:1px solid var(--os-border);border-radius:20px;padding:2px 8px;font-size:10px;font-weight:700;display:inline-block}
+.ga{background:#fef9c3;color:#713f12;border:1px solid #fde047;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;display:inline-block}
+.gb{background:#e0f2fe;color:#0c4a6e;border:1px solid #7dd3fc;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;display:inline-block}
+
+/* ═══ CARD ═══ */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;margin-bottom:16px;box-shadow:var(--shadow)}
+.card-title{font-size:14px;font-weight:800;color:var(--txt);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:9px;letter-spacing:-.1px}
+.card-title i{font-size:19px;color:var(--primary)}
+
+/* ═══ INFO BOXES ═══ */
+.info-box{background:linear-gradient(90deg,var(--primary-l),#f8fbff);border:1px solid #bfdbfe;border-radius:var(--radius-sm);padding:10px 14px;margin-bottom:14px;font-size:12px;color:#1e40af;display:flex;align-items:flex-start;gap:8px;border-left:3px solid var(--primary)}
+.info-box i{font-size:15px;margin-top:1px;flex-shrink:0;color:var(--primary)}
+.warn-box{background:linear-gradient(90deg,#fffbeb,#fffff8);border:1px solid var(--morning-border);border-radius:var(--radius-sm);padding:10px 14px;margin-bottom:14px;font-size:12px;color:#92400e;display:flex;align-items:flex-start;gap:8px;border-left:3px solid var(--morning)}
+.warn-box i{font-size:15px;margin-top:1px;flex-shrink:0;color:var(--morning)}
+
+/* ═══ FORMS ═══ */
+.form-row{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;margin-bottom:16px}
+.fg{display:flex;flex-direction:column;gap:5px}
+.fg label{font-size:11px;font-weight:700;color:var(--txt2);text-transform:uppercase;letter-spacing:.5px}
+input[type=text],input[type=date],select{
+  border:1px solid var(--border2);border-radius:var(--radius-sm);
+  padding:8px 10px;font-size:13px;color:var(--txt);
+  background:var(--surface);transition:all .15s;
+  box-shadow:var(--shadow);
+}
+input[type=text]:focus,input[type=date]:focus,select:focus{
+  outline:2px solid var(--primary);border-color:transparent;
+  box-shadow:0 0 0 3px rgba(37,99,235,.12);
+}
+input[type=text]:hover,input[type=date]:hover,select:hover{border-color:var(--primary)}
+
+/* ═══ ACTION BUTTONS ═══ */
+.btn-add{
+  background:linear-gradient(135deg,var(--primary),var(--primary-h));
+  color:#fff;border-radius:var(--radius-sm);padding:8px 16px;
+  font-size:13px;font-weight:600;cursor:pointer;border:none;
+  display:inline-flex;align-items:center;gap:5px;
+  box-shadow:0 2px 8px rgba(37,99,235,.3);
+  transition:all .15s;
+}
+.btn-add:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(37,99,235,.4)}
+.btn-add i{font-size:15px}
+.btn-edit{background:var(--primary-l);color:var(--primary);border:1px solid #bfdbfe;border-radius:var(--radius-sm);padding:4px 10px;font-size:11px;font-weight:600;cursor:pointer;transition:all .15s}
+.btn-edit:hover{background:var(--primary);color:#fff;transform:translateY(-1px)}
+.btn-del{background:var(--hol-bg);color:var(--hol);border:1px solid var(--hol-border);border-radius:var(--radius-sm);padding:4px 8px;font-size:11px;font-weight:600;cursor:pointer;transition:all .15s}
+.btn-del:hover{background:var(--hol);color:#fff}
+.btn-sec{background:var(--surface);color:var(--txt2);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:8px 14px;font-size:13px;cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:5px;box-shadow:var(--shadow)}
+.btn-sec:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-1px)}
+.btn-warn{background:#fffbeb;color:#92400e;border:1px solid var(--morning-border);border-radius:var(--radius-sm);padding:8px 14px;font-size:13px;cursor:pointer;font-weight:600;transition:all .15s;display:inline-flex;align-items:center;gap:5px}
+.btn-warn:hover{background:var(--morning);color:#fff;transform:translateY(-1px)}
+
+/* ═══ MANAGEMENT TABLES ═══ */
+.mtbl{width:100%;border-collapse:collapse;font-size:13px}
+.mtbl th{background:#f8fafc;color:var(--txt2);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;padding:9px 14px;border-bottom:2px solid var(--border);text-align:left}
+.mtbl td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--txt)}
+.mtbl tr:last-child td{border-bottom:none}
+.mtbl tr:hover td{background:#f8fafc}
+.mtbl .grp-hdr td{
+  background:linear-gradient(90deg,#f0f9ff,#f8fafc);
+  font-weight:700;color:var(--primary);font-size:12px;padding:7px 14px;
+  border-top:2px solid var(--border);
+}
+
+/* ═══ PERIOD LIST ═══ */
+.per-item{display:flex;gap:12px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--border);flex-wrap:wrap;transition:background .12s}
+.per-item:last-child{border-bottom:none}
+.per-item:hover{background:#f8fafc}
+.per-num{background:linear-gradient(135deg,var(--primary),#7c3aed);color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0;box-shadow:0 2px 6px rgba(37,99,235,.3)}
+.per-dates{flex:1;min-width:180px;font-size:13px;font-weight:500}
+.per-days{font-size:11px;color:var(--txt3);margin-top:3px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+
+/* ═══ HOLIDAY LIST ═══ */
+.hol-item{display:flex;align-items:center;gap:12px;padding:11px 16px;border-bottom:1px solid var(--border);transition:background .12s}
+.hol-item:last-child{border-bottom:none}
+.hol-item:hover{background:#f8fafc}
+.hol-date{width:108px;font-size:12px;font-weight:700;color:var(--hol);flex-shrink:0}
+.hol-name{flex:1;font-size:13px}
+.hol-dow{font-size:11px;color:var(--txt3);width:60px;flex-shrink:0}
+
+/* ═══ MODAL ═══ */
+.overlay{display:none;position:fixed;inset:0;background:rgba(15,23,42,.55);z-index:500;justify-content:center;align-items:center;backdrop-filter:blur(2px)}
+.overlay.open{display:flex}
+.modal{
+  background:var(--surface);border-radius:var(--radius);
+  padding:26px;width:400px;max-width:95vw;
+  box-shadow:0 25px 60px rgba(0,0,0,.25),0 0 0 1px rgba(0,0,0,.05);
+  animation:modalIn .18s ease;
+}
+@keyframes modalIn{from{opacity:0;transform:translateY(-10px) scale(.97)}to{opacity:1;transform:none}}
+.modal-title{font-size:16px;font-weight:800;margin-bottom:20px;color:var(--txt);letter-spacing:-.2px}
+.modal-row{margin-bottom:14px}
+.modal-row label{display:block;font-size:11px;font-weight:700;color:var(--txt2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.modal-row input,.modal-row select{width:100%}
+.modal-btns{display:flex;gap:8px;justify-content:flex-end;margin-top:22px;padding-top:16px;border-top:1px solid var(--border)}
+.btn-cancel{background:var(--surface);border:1px solid var(--border2);color:var(--txt2);border-radius:var(--radius-sm);padding:8px 18px;font-size:13px;cursor:pointer;transition:all .15s}
+.btn-cancel:hover{background:var(--bg)}
+.btn-ok{background:linear-gradient(135deg,var(--primary),var(--primary-h));color:#fff;border:none;border-radius:var(--radius-sm);padding:8px 20px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(37,99,235,.3);transition:all .15s}
+.btn-ok:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(37,99,235,.4)}
+
+/* ═══ INLINE POPUP ═══ */
+#ipop{
+  display:none;position:fixed;
+  background:var(--surface);
+  border:1px solid var(--border2);
+  border-radius:var(--radius);
+  padding:14px 16px;
+  box-shadow:0 10px 30px rgba(0,0,0,.15),0 0 0 1px rgba(0,0,0,.04);
+  z-index:600;min-width:220px;
+  animation:popIn .14s ease;
+}
+@keyframes popIn{from{opacity:0;transform:scale(.95) translateY(-4px)}to{opacity:1;transform:none}}
+#ipop-title{font-size:11px;font-weight:700;color:var(--txt2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+#ipop input,#ipop select{width:100%;margin-bottom:10px}
+.ipop-btns{display:flex;gap:6px;justify-content:flex-end}
+
+/* ═══ PERIOD HOLIDAYS ═══ */
+.period-hols{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;margin-bottom:16px;box-shadow:var(--shadow)}
+.period-hols h3{font-size:11px;font-weight:700;color:var(--txt2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.hol-tag{display:inline-flex;align-items:center;gap:5px;background:var(--hol-bg);border:1px solid var(--hol-border);border-radius:20px;padding:4px 12px;font-size:11px;color:var(--hol);margin:2px;font-weight:600}
+
+/* ═══ DIVIDER ═══ */
+.section-gap{height:6px;background:var(--bg);border:none}
+
+/* ═══ PRINT ═══ */
+@media print{
+  .nav,.period-bar,.legend,.unsaved-banner,.no-print{display:none!important}
+  .page.active{display:block;padding:0}
+  .tbl-wrap{box-shadow:none;border:1px solid #ccc;border-radius:0}
+  .sc0,.sc1,.sc2,.sc3{position:static}
+  body{background:#fff}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand">
+    <div class="brand-icon">📋</div>
+    ตารางกะ
+  </div>
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="showPage('schedule',this)"><i class="ti ti-calendar-month"></i>ตารางกะ</button>
+    <button class="nav-tab" onclick="showPage('employees',this)"><i class="ti ti-users"></i>พนักงาน</button>
+    <button class="nav-tab" onclick="showPage('periods',this)"><i class="ti ti-rotate-clockwise"></i>คาบเปลี่ยนกะ</button>
+    <button class="nav-tab" onclick="showPage('holidays',this)"><i class="ti ti-beach"></i>วันหยุด</button>
+  </div>
+  <div class="nav-actions no-print">
+    <button id="save-btn" class="btn btn-save unsaved" onclick="saveFile()"><i class="ti ti-device-floppy"></i>บันทึก</button>
+    <button class="btn btn-saveas" onclick="saveFileAs()" title="บันทึกเป็น..."><i class="ti ti-folder-open"></i></button>
+    <button class="btn btn-print" onclick="window.print()" title="พิมพ์"><i class="ti ti-printer"></i></button>
+  </div>
+</nav>
+
+<!-- ═══ SCHEDULE ═══ -->
+<div id="page-schedule" class="page active">
+  <div id="unsaved-banner" class="unsaved-banner no-print" style="display: flex;">
+    <i class="ti ti-alert-triangle"></i>
+    มีการแก้ไขที่ยังไม่ได้บันทึก — กด <strong>Ctrl+S</strong> หรือคลิก บันทึก ที่มุมบนขวา
+  </div>
+
+  <div class="period-bar no-print">
+    <div class="period-info">
+      <div class="period-title" id="per-title">คาบที่ 6 — 21 มิถุนายน 2026 ถึง 18 กรกฎาคม 2026</div>
+      <div class="period-sub" id="per-sub">28 วัน · วันโปรฯ 3 วัน</div>
+    </div>
+    <div class="period-nav">
+      <button class="btn-nav" onclick="prevPeriod()"><i class="ti ti-chevron-left"></i></button>
+      <select id="sel-period" class="period-select" onchange="onPeriodChange()"><option value="0">คาบที่ 1  (18 ม.ค. — 14 ก.พ. 2569)</option><option value="1">คาบที่ 2  (15 ก.พ. — 14 มี.ค. 2569)</option><option value="2">คาบที่ 3  (15 มี.ค. — 12 เม.ย. 2569)</option><option value="3">คาบที่ 4  (13 เม.ย. — 22 พ.ค. 2569)</option><option value="4">คาบที่ 5  (23 พ.ค. — 20 มิ.ย. 2569)</option><option value="5">คาบที่ 6  (21 มิ.ย. — 18 ก.ค. 2569)</option></select>
+      <button class="btn-nav" onclick="nextPeriod()"><i class="ti ti-chevron-right"></i></button>
+    </div>
+    <button class="btn-clear no-print" onclick="clearOverrides()"><i class="ti ti-eraser"></i> ล้างแก้ไข</button>
+  </div>
+
+  <div class="legend no-print">
+    <span class="leg-item"><span class="leg-dot" style="background:#fff;border:1px solid #ccc"></span>W ทำงาน</span>
+    <span class="leg-item"><span class="leg-dot" style="background:var(--hol-bg);border:1px solid var(--hol-border)"></span>H หยุด</span>
+    <span class="leg-item"><span class="leg-dot" style="background:#fffbeb;border:1px solid #fcd34d"></span>วันโปรฯ</span>
+    <span class="leg-item"><span class="leg-dot" style="background:var(--last-bg);border:1px solid var(--last-border)"></span>วันสุดท้ายคาบ 10-19</span>
+    <span class="leg-item"><span class="leg-dot" style="background:#fee2e2;box-shadow:inset 0 0 0 2px #f87171"></span>แก้ไขเป็น H</span>
+    <span class="leg-item"><span class="leg-dot" style="background:#f0fdf4;box-shadow:inset 0 0 0 2px #4ade80"></span>แก้ไขเป็น W</span>
+    <span class="leg-hint">· คลิกเซลล์ W/H เพื่อสลับ · คลิกชื่อ/หยุด/กะ เพื่อแก้ไข</span>
+  </div>
+
+  <div id="schedule-out"><div class="tbl-wrap"><div class="tbl-scroll"><table><thead><tr class="no-print"><th colspan="32" class="sh-morning">กะเช้า 07:00-16:00 — กลุ่ม A</th></tr><tr><th colspan="4" class="mh-label sc-hdr" style="border:1px solid #1e293b;color:#64748b;font-size:10px;letter-spacing:.3px;text-transform:uppercase">เดือน</th><th colspan="10" class="mh" style="background:#1e3a8a">มิ.ย. 2569</th><th colspan="18" class="mh" style="background:#1d4ed8">ก.ค. 2569</th></tr><tr><th colspan="4" class="mh-label sc-hdr" style="border:1px solid #1e293b;color:#64748b;font-size:10px;letter-spacing:.3px;text-transform:uppercase">วันที่</th><th class="date-hdr">21</th><th class="date-hdr wk-s">22</th><th class="date-hdr">23</th><th class="date-hdr">24</th><th class="date-hdr is-pro" title="วันโปรฯ">25</th><th class="date-hdr">26</th><th class="date-hdr">27</th><th class="date-hdr is-pro" title="วันโปรฯ">28</th><th class="date-hdr wk-s">29</th><th class="date-hdr">30</th><th class="date-hdr">1</th><th class="date-hdr">2</th><th class="date-hdr">3</th><th class="date-hdr">4</th><th class="date-hdr">5</th><th class="date-hdr wk-s">6</th><th class="date-hdr">7</th><th class="date-hdr">8</th><th class="date-hdr">9</th><th class="date-hdr">10</th><th class="date-hdr">11</th><th class="date-hdr">12</th><th class="date-hdr wk-s">13</th><th class="date-hdr">14</th><th class="date-hdr is-pro" title="วันโปรฯ">15</th><th class="date-hdr">16</th><th class="date-hdr">17</th><th class="date-hdr is-last" title="วันสุดท้าย 10-19">18</th></tr><tr class="dh-row"><th class="sc0">ชื่อ-สกุล</th><th class="sc1">เล่น</th><th class="sc2">หยุด</th><th class="sc3">กะ</th><th class="dow-we" style="">อา</th><th class="wk-s dow-mon" style="">จ</th><th class="" style="">อ</th><th class="" style="">พ</th><th class="" style="">พฤ</th><th class="" style="">ศ</th><th class="dow-we" style="">ส</th><th class="dow-we" style="">อา</th><th class="wk-s dow-mon" style="">จ</th><th class="" style="">อ</th><th class="" style="">พ</th><th class="" style="">พฤ</th><th class="" style="">ศ</th><th class="dow-we" style="">ส</th><th class="dow-we" style="">อา</th><th class="wk-s dow-mon" style="">จ</th><th class="" style="">อ</th><th class="" style="">พ</th><th class="" style="">พฤ</th><th class="" style="">ศ</th><th class="dow-we" style="">ส</th><th class="dow-we" style="">อา</th><th class="wk-s dow-mon" style="">จ</th><th class="" style="">อ</th><th class="" style="">พ</th><th class="" style="">พฤ</th><th class="" style="">ศ</th><th class="dow-we" style="background:#1e1040;">ส</th></tr></thead><tbody><tr><td class="sc0 ec" onclick="iEdit(event,0,'name','emp')" title="แก้ไขชื่อ">นายวัชระ ถาลี</td><td class="sc1 ec" onclick="iEdit(event,0,'nick','emp')" title="แก้ไขชื่อเล่น">โทน</td><td class="sc2 ec" onclick="iEdit(event,0,'dayOff','emp')" title="แก้ไขวันหยุด">อ</td><td class="sc3 ec" onclick="toggleGrp(event,0)" title="คลิกเปลี่ยนกลุ่ม"><span class="bm">เช้า</span></td><td class="cW clickable" onclick="cycleCell(" 2026-06-21","นายวัชระ="" ถาลี","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-22","นายวัชระ="" ถาลี","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-06-23","นายวัชระ="" ถาลี","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-06-24","นายวัชระ="" ถาลี","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-06-25","นายวัชระ="" ถาลี","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-26","นายวัชระ="" ถาลี","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-27","นายวัชระ="" ถาลี","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-06-28","นายวัชระ="" ถาลี","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-29","นายวัชระ="" ถาลี","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-06-30","นายวัชระ="" ถาลี","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-07-01","นายวัชระ="" ถาลี","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-02","นายวัชระ="" ถาลี","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-03","นายวัชระ="" ถาลี","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-04","นายวัชระ="" ถาลี","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-05","นายวัชระ="" ถาลี","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-06","นายวัชระ="" ถาลี","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-07-07","นายวัชระ="" ถาลี","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-07-08","นายวัชระ="" ถาลี","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-09","นายวัชระ="" ถาลี","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-10","นายวัชระ="" ถาลี","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-11","นายวัชระ="" ถาลี","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-12","นายวัชระ="" ถาลี","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-13","นายวัชระ="" ถาลี","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-07-14","นายวัชระ="" ถาลี","h")"="" title="H">H</td><td class="cP clickable" onclick="cycleCell(" 2026-07-15","นายวัชระ="" ถาลี","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-16","นายวัชระ="" ถาลี","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-17","นายวัชระ="" ถาลี","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-18","นายวัชระ="" ถาลี","w")"="" title="W">W</td></tr><tr><td class="sc0 ec" onclick="iEdit(event,1,'name','emp')" title="แก้ไขชื่อ">นายธิติ บุญเชิด</td><td class="sc1 ec" onclick="iEdit(event,1,'nick','emp')" title="แก้ไขชื่อเล่น">นนท์</td><td class="sc2 ec" onclick="iEdit(event,1,'dayOff','emp')" title="แก้ไขวันหยุด">อ</td><td class="sc3 ec" onclick="toggleGrp(event,1)" title="คลิกเปลี่ยนกลุ่ม"><span class="bm">เช้า</span></td><td class="cW clickable" onclick="cycleCell(" 2026-06-21","นายธิติ="" บุญเชิด","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-22","นายธิติ="" บุญเชิด","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-06-23","นายธิติ="" บุญเชิด","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-06-24","นายธิติ="" บุญเชิด","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-06-25","นายธิติ="" บุญเชิด","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-26","นายธิติ="" บุญเชิด","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-27","นายธิติ="" บุญเชิด","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-06-28","นายธิติ="" บุญเชิด","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-29","นายธิติ="" บุญเชิด","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-06-30","นายธิติ="" บุญเชิด","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-07-01","นายธิติ="" บุญเชิด","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-02","นายธิติ="" บุญเชิด","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-03","นายธิติ="" บุญเชิด","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-04","นายธิติ="" บุญเชิด","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-05","นายธิติ="" บุญเชิด","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-06","นายธิติ="" บุญเชิด","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-07-07","นายธิติ="" บุญเชิด","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-07-08","นายธิติ="" บุญเชิด","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-09","นายธิติ="" บุญเชิด","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-10","นายธิติ="" บุญเชิด","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-11","นายธิติ="" บุญเชิด","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-12","นายธิติ="" บุญเชิด","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-13","นายธิติ="" บุญเชิด","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-07-14","นายธิติ="" บุญเชิด","h")"="" title="H">H</td><td class="cP clickable" onclick="cycleCell(" 2026-07-15","นายธิติ="" บุญเชิด","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-16","นายธิติ="" บุญเชิด","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-17","นายธิติ="" บุญเชิด","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-18","นายธิติ="" บุญเชิด","w")"="" title="W">W</td></tr><tr><td class="sc0 ec" onclick="iEdit(event,2,'name','emp')" title="แก้ไขชื่อ">นายจักริน พัดเพียเมือง</td><td class="sc1 ec" onclick="iEdit(event,2,'nick','emp')" title="แก้ไขชื่อเล่น">อ๋อง</td><td class="sc2 ec" onclick="iEdit(event,2,'dayOff','emp')" title="แก้ไขวันหยุด">ศ</td><td class="sc3 ec" onclick="toggleGrp(event,2)" title="คลิกเปลี่ยนกลุ่ม"><span class="bm">เช้า</span></td><td class="cW clickable" onclick="cycleCell(" 2026-06-21","นายจักริน="" พัดเพียเมือง","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-22","นายจักริน="" พัดเพียเมือง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-23","นายจักริน="" พัดเพียเมือง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-24","นายจักริน="" พัดเพียเมือง","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-06-25","นายจักริน="" พัดเพียเมือง","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-06-26","นายจักริน="" พัดเพียเมือง","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-06-27","นายจักริน="" พัดเพียเมือง","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-06-28","นายจักริน="" พัดเพียเมือง","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-29","นายจักริน="" พัดเพียเมือง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-30","นายจักริน="" พัดเพียเมือง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-01","นายจักริน="" พัดเพียเมือง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-02","นายจักริน="" พัดเพียเมือง","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-07-03","นายจักริน="" พัดเพียเมือง","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-07-04","นายจักริน="" พัดเพียเมือง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-05","นายจักริน="" พัดเพียเมือง","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-06","นายจักริน="" พัดเพียเมือง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-07","นายจักริน="" พัดเพียเมือง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-08","นายจักริน="" พัดเพียเมือง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-09","นายจักริน="" พัดเพียเมือง","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-07-10","นายจักริน="" พัดเพียเมือง","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-07-11","นายจักริน="" พัดเพียเมือง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-12","นายจักริน="" พัดเพียเมือง","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-13","นายจักริน="" พัดเพียเมือง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-14","นายจักริน="" พัดเพียเมือง","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-07-15","นายจักริน="" พัดเพียเมือง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-16","นายจักริน="" พัดเพียเมือง","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-07-17","นายจักริน="" พัดเพียเมือง","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-07-18","นายจักริน="" พัดเพียเมือง","w")"="" title="W">W</td></tr><tr><td class="sc0 ec" onclick="iEdit(event,3,'name','emp')" title="แก้ไขชื่อ">นายณัฐพล ชูศรีทอง</td><td class="sc1 ec" onclick="iEdit(event,3,'nick','emp')" title="แก้ไขชื่อเล่น">เบียร์</td><td class="sc2 ec" onclick="iEdit(event,3,'dayOff','emp')" title="แก้ไขวันหยุด">ส</td><td class="sc3 ec" onclick="toggleGrp(event,3)" title="คลิกเปลี่ยนกลุ่ม"><span class="bm">เช้า</span></td><td class="cW clickable" onclick="cycleCell(" 2026-06-21","นายณัฐพล="" ชูศรีทอง","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-22","นายณัฐพล="" ชูศรีทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-23","นายณัฐพล="" ชูศรีทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-24","นายณัฐพล="" ชูศรีทอง","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-06-25","นายณัฐพล="" ชูศรีทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-26","นายณัฐพล="" ชูศรีทอง","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-06-27","นายณัฐพล="" ชูศรีทอง","h")"="" title="H">H</td><td class="cP clickable" onclick="cycleCell(" 2026-06-28","นายณัฐพล="" ชูศรีทอง","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-29","นายณัฐพล="" ชูศรีทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-30","นายณัฐพล="" ชูศรีทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-01","นายณัฐพล="" ชูศรีทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-02","นายณัฐพล="" ชูศรีทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-03","นายณัฐพล="" ชูศรีทอง","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-07-04","นายณัฐพล="" ชูศรีทอง","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-07-05","นายณัฐพล="" ชูศรีทอง","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-06","นายณัฐพล="" ชูศรีทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-07","นายณัฐพล="" ชูศรีทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-08","นายณัฐพล="" ชูศรีทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-09","นายณัฐพล="" ชูศรีทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-10","นายณัฐพล="" ชูศรีทอง","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-07-11","นายณัฐพล="" ชูศรีทอง","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-07-12","นายณัฐพล="" ชูศรีทอง","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-13","นายณัฐพล="" ชูศรีทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-14","นายณัฐพล="" ชูศรีทอง","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-07-15","นายณัฐพล="" ชูศรีทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-16","นายณัฐพล="" ชูศรีทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-17","นายณัฐพล="" ชูศรีทอง","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-07-18","นายณัฐพล="" ชูศรีทอง","h")"="" title="H">H</td></tr><tr><td class="sc0 ec" onclick="iEdit(event,4,'name','emp')" title="แก้ไขชื่อ">นายขจรศักดิ์ หอมหวาน</td><td class="sc1 ec" onclick="iEdit(event,4,'nick','emp')" title="แก้ไขชื่อเล่น">จร</td><td class="sc2 ec" onclick="iEdit(event,4,'dayOff','emp')" title="แก้ไขวันหยุด">อา</td><td class="sc3 ec" onclick="toggleGrp(event,4)" title="คลิกเปลี่ยนกลุ่ม"><span class="bm">เช้า</span></td><td class="cH clickable" onclick="cycleCell(" 2026-06-21","นายขจรศักดิ์="" หอมหวาน","h")"="" title="H">H</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-22","นายขจรศักดิ์="" หอมหวาน","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-23","นายขจรศักดิ์="" หอมหวาน","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-24","นายขจรศักดิ์="" หอมหวาน","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-06-25","นายขจรศักดิ์="" หอมหวาน","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-26","นายขจรศักดิ์="" หอมหวาน","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-27","นายขจรศักดิ์="" หอมหวาน","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-06-28","นายขจรศักดิ์="" หอมหวาน","h")"="" title="H">H</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-29","นายขจรศักดิ์="" หอมหวาน","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-30","นายขจรศักดิ์="" หอมหวาน","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-01","นายขจรศักดิ์="" หอมหวาน","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-02","นายขจรศักดิ์="" หอมหวาน","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-03","นายขจรศักดิ์="" หอมหวาน","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-04","นายขจรศักดิ์="" หอมหวาน","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-07-05","นายขจรศักดิ์="" หอมหวาน","h")"="" title="H">H</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-06","นายขจรศักดิ์="" หอมหวาน","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-07","นายขจรศักดิ์="" หอมหวาน","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-08","นายขจรศักดิ์="" หอมหวาน","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-09","นายขจรศักดิ์="" หอมหวาน","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-10","นายขจรศักดิ์="" หอมหวาน","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-11","นายขจรศักดิ์="" หอมหวาน","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-07-12","นายขจรศักดิ์="" หอมหวาน","h")"="" title="H">H</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-13","นายขจรศักดิ์="" หอมหวาน","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-14","นายขจรศักดิ์="" หอมหวาน","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-07-15","นายขจรศักดิ์="" หอมหวาน","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-16","นายขจรศักดิ์="" หอมหวาน","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-17","นายขจรศักดิ์="" หอมหวาน","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-18","นายขจรศักดิ์="" หอมหวาน","w")"="" title="W">W</td></tr><tr><td class="sc0 ec" onclick="iEdit(event,9,'name','emp')" title="แก้ไขชื่อ">นายสร้อยแก้ว ตาวงค์</td><td class="sc1 ec" onclick="iEdit(event,9,'nick','emp')" title="แก้ไขชื่อเล่น">เดท</td><td class="sc2 ec" onclick="iEdit(event,9,'dayOff','emp')" title="แก้ไขวันหยุด">จ</td><td class="sc3 ec" onclick="toggleGrp(event,9)" title="คลิกเปลี่ยนกลุ่ม"><span class="bm">เช้า</span></td><td class="cW clickable" onclick="cycleCell(" 2026-06-21","นายสร้อยแก้ว="" ตาวงค์","w")"="" title="W">W</td><td class="cH clickable wk-s" onclick="cycleCell(" 2026-06-22","นายสร้อยแก้ว="" ตาวงค์","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-06-23","นายสร้อยแก้ว="" ตาวงค์","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-24","นายสร้อยแก้ว="" ตาวงค์","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-06-25","นายสร้อยแก้ว="" ตาวงค์","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-26","นายสร้อยแก้ว="" ตาวงค์","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-27","นายสร้อยแก้ว="" ตาวงค์","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-06-28","นายสร้อยแก้ว="" ตาวงค์","w")"="" title="W">W</td><td class="cH clickable wk-s" onclick="cycleCell(" 2026-06-29","นายสร้อยแก้ว="" ตาวงค์","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-06-30","นายสร้อยแก้ว="" ตาวงค์","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-01","นายสร้อยแก้ว="" ตาวงค์","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-02","นายสร้อยแก้ว="" ตาวงค์","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-03","นายสร้อยแก้ว="" ตาวงค์","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-04","นายสร้อยแก้ว="" ตาวงค์","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-05","นายสร้อยแก้ว="" ตาวงค์","w")"="" title="W">W</td><td class="cH clickable wk-s" onclick="cycleCell(" 2026-07-06","นายสร้อยแก้ว="" ตาวงค์","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-07-07","นายสร้อยแก้ว="" ตาวงค์","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-08","นายสร้อยแก้ว="" ตาวงค์","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-09","นายสร้อยแก้ว="" ตาวงค์","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-10","นายสร้อยแก้ว="" ตาวงค์","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-11","นายสร้อยแก้ว="" ตาวงค์","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-12","นายสร้อยแก้ว="" ตาวงค์","w")"="" title="W">W</td><td class="cH clickable wk-s" onclick="cycleCell(" 2026-07-13","นายสร้อยแก้ว="" ตาวงค์","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-07-14","นายสร้อยแก้ว="" ตาวงค์","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-07-15","นายสร้อยแก้ว="" ตาวงค์","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-16","นายสร้อยแก้ว="" ตาวงค์","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-17","นายสร้อยแก้ว="" ตาวงค์","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-18","นายสร้อยแก้ว="" ตาวงค์","w")"="" title="W">W</td></tr><tr class="os-sep-row"><td class="sc0" style="padding-left:14px"><i class="ti ti-users" style="font-size:12px;margin-right:5px;vertical-align:middle"></i>Outsource (3 คน)</td><td class="sc1"></td><td class="sc2"></td><td class="sc3"></td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="wk-s" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="wk-s" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="wk-s" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="wk-s" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td></tr><tr class="os-row"><td class="sc0 ec" onclick="iEditOS(event,0,'name')" title="แก้ไข">Outsource เช้า 1</td><td class="sc1 ec" onclick="iEditOS(event,0,'nick')" title="แก้ไข">OS1</td><td class="sc2 ec" onclick="iEditOS(event,0,'dayOff')" title="แก้ไขวันหยุด" style="font-size:11px;color:var(--txt2)">-</td><td class="sc3 ec" onclick="toggleOS(event,0)" title="คลิกเปลี่ยนกะ"><span class="bo">OS เช้า</span></td><td class="cW clickable" onclick="cycleCell(" 2026-06-21","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-22","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-23","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-24","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-25","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-26","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-27","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-28","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-29","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-30","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-01","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-02","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-03","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-04","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-05","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-06","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-07","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-08","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-09","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-10","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-11","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-12","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-13","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-14","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-15","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-16","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-17","outsource="" เช้า="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-18","outsource="" เช้า="" 1","w")"="" title="W">W</td></tr><tr class="os-row"><td class="sc0 ec" onclick="iEditOS(event,1,'name')" title="แก้ไข">Outsource เช้า 2</td><td class="sc1 ec" onclick="iEditOS(event,1,'nick')" title="แก้ไข">OS2</td><td class="sc2 ec" onclick="iEditOS(event,1,'dayOff')" title="แก้ไขวันหยุด" style="font-size:11px;color:var(--txt2)">-</td><td class="sc3 ec" onclick="toggleOS(event,1)" title="คลิกเปลี่ยนกะ"><span class="bo">OS เช้า</span></td><td class="cW clickable" onclick="cycleCell(" 2026-06-21","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-22","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-23","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-24","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-25","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-26","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-27","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-28","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-29","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-30","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-01","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-02","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-03","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-04","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-05","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-06","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-07","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-08","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-09","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-10","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-11","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-12","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-13","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-14","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-15","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-16","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-17","outsource="" เช้า="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-18","outsource="" เช้า="" 2","w")"="" title="W">W</td></tr><tr class="os-row"><td class="sc0 ec" onclick="iEditOS(event,2,'name')" title="แก้ไข">Outsource เช้า 3</td><td class="sc1 ec" onclick="iEditOS(event,2,'nick')" title="แก้ไข">OS3</td><td class="sc2 ec" onclick="iEditOS(event,2,'dayOff')" title="แก้ไขวันหยุด" style="font-size:11px;color:var(--txt2)">-</td><td class="sc3 ec" onclick="toggleOS(event,2)" title="คลิกเปลี่ยนกะ"><span class="bo">OS เช้า</span></td><td class="cW clickable" onclick="cycleCell(" 2026-06-21","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-22","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-23","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-24","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-25","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-26","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-27","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-28","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-29","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-30","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-01","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-02","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-03","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-04","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-05","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-06","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-07","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-08","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-09","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-10","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-11","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-12","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-13","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-14","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-15","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-16","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-17","outsource="" เช้า="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-18","outsource="" เช้า="" 3","w")"="" title="W">W</td></tr></tbody><tbody><tr><td colspan="32" style="background:var(--bg);height:8px;border:none"></td></tr></tbody><thead><tr class="no-print"><th colspan="32" class="sh-evening">กะบ่าย 16:00-24:00 — กลุ่ม B | วันสุดท้ายคาบ: 10:00-19:00 (ยกเว้นหยุดเสาร์)</th></tr><tr><th colspan="4" class="mh-label sc-hdr" style="border:1px solid #1e293b;color:#64748b;font-size:10px;letter-spacing:.3px;text-transform:uppercase">เดือน</th><th colspan="10" class="mh" style="background:#1e3a8a">มิ.ย. 2569</th><th colspan="18" class="mh" style="background:#1d4ed8">ก.ค. 2569</th></tr><tr><th colspan="4" class="mh-label sc-hdr" style="border:1px solid #1e293b;color:#64748b;font-size:10px;letter-spacing:.3px;text-transform:uppercase">วันที่</th><th class="date-hdr">21</th><th class="date-hdr wk-s">22</th><th class="date-hdr">23</th><th class="date-hdr">24</th><th class="date-hdr is-pro" title="วันโปรฯ">25</th><th class="date-hdr">26</th><th class="date-hdr">27</th><th class="date-hdr is-pro" title="วันโปรฯ">28</th><th class="date-hdr wk-s">29</th><th class="date-hdr">30</th><th class="date-hdr">1</th><th class="date-hdr">2</th><th class="date-hdr">3</th><th class="date-hdr">4</th><th class="date-hdr">5</th><th class="date-hdr wk-s">6</th><th class="date-hdr">7</th><th class="date-hdr">8</th><th class="date-hdr">9</th><th class="date-hdr">10</th><th class="date-hdr">11</th><th class="date-hdr">12</th><th class="date-hdr wk-s">13</th><th class="date-hdr">14</th><th class="date-hdr is-pro" title="วันโปรฯ">15</th><th class="date-hdr">16</th><th class="date-hdr">17</th><th class="date-hdr is-last" title="วันสุดท้าย 10-19">18</th></tr><tr class="dh-row"><th class="sc0">ชื่อ-สกุล</th><th class="sc1">เล่น</th><th class="sc2">หยุด</th><th class="sc3">กะ</th><th class="dow-we" style="">อา</th><th class="wk-s dow-mon" style="">จ</th><th class="" style="">อ</th><th class="" style="">พ</th><th class="" style="">พฤ</th><th class="" style="">ศ</th><th class="dow-we" style="">ส</th><th class="dow-we" style="">อา</th><th class="wk-s dow-mon" style="">จ</th><th class="" style="">อ</th><th class="" style="">พ</th><th class="" style="">พฤ</th><th class="" style="">ศ</th><th class="dow-we" style="">ส</th><th class="dow-we" style="">อา</th><th class="wk-s dow-mon" style="">จ</th><th class="" style="">อ</th><th class="" style="">พ</th><th class="" style="">พฤ</th><th class="" style="">ศ</th><th class="dow-we" style="">ส</th><th class="dow-we" style="">อา</th><th class="wk-s dow-mon" style="">จ</th><th class="" style="">อ</th><th class="" style="">พ</th><th class="" style="">พฤ</th><th class="" style="">ศ</th><th class="dow-we" style="background:#1e1040;">ส</th></tr></thead><tbody><tr><td class="sc0 ec" onclick="iEdit(event,5,'name','emp')" title="แก้ไขชื่อ">นายไชยวัฒน์ จำปาเณร</td><td class="sc1 ec" onclick="iEdit(event,5,'nick','emp')" title="แก้ไขชื่อเล่น">นิว</td><td class="sc2 ec" onclick="iEdit(event,5,'dayOff','emp')" title="แก้ไขวันหยุด">จ</td><td class="sc3 ec" onclick="toggleGrp(event,5)" title="คลิกเปลี่ยนกลุ่ม"><span class="be">บ่าย</span></td><td class="cW clickable" onclick="cycleCell(" 2026-06-21","นายไชยวัฒน์="" จำปาเณร","w")"="" title="W">W</td><td class="cH clickable wk-s" onclick="cycleCell(" 2026-06-22","นายไชยวัฒน์="" จำปาเณร","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-06-23","นายไชยวัฒน์="" จำปาเณร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-24","นายไชยวัฒน์="" จำปาเณร","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-06-25","นายไชยวัฒน์="" จำปาเณร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-26","นายไชยวัฒน์="" จำปาเณร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-27","นายไชยวัฒน์="" จำปาเณร","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-06-28","นายไชยวัฒน์="" จำปาเณร","w")"="" title="W">W</td><td class="cH clickable wk-s" onclick="cycleCell(" 2026-06-29","นายไชยวัฒน์="" จำปาเณร","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-06-30","นายไชยวัฒน์="" จำปาเณร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-01","นายไชยวัฒน์="" จำปาเณร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-02","นายไชยวัฒน์="" จำปาเณร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-03","นายไชยวัฒน์="" จำปาเณร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-04","นายไชยวัฒน์="" จำปาเณร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-05","นายไชยวัฒน์="" จำปาเณร","w")"="" title="W">W</td><td class="cH clickable wk-s" onclick="cycleCell(" 2026-07-06","นายไชยวัฒน์="" จำปาเณร","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-07-07","นายไชยวัฒน์="" จำปาเณร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-08","นายไชยวัฒน์="" จำปาเณร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-09","นายไชยวัฒน์="" จำปาเณร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-10","นายไชยวัฒน์="" จำปาเณร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-11","นายไชยวัฒน์="" จำปาเณร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-12","นายไชยวัฒน์="" จำปาเณร","w")"="" title="W">W</td><td class="cH clickable wk-s" onclick="cycleCell(" 2026-07-13","นายไชยวัฒน์="" จำปาเณร","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-07-14","นายไชยวัฒน์="" จำปาเณร","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-07-15","นายไชยวัฒน์="" จำปาเณร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-16","นายไชยวัฒน์="" จำปาเณร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-17","นายไชยวัฒน์="" จำปาเณร","w")"="" title="W">W</td><td class="cL clickable" onclick="cycleCell(" 2026-07-18","นายไชยวัฒน์="" จำปาเณร","10-19")"="" title="10-19">10-19</td></tr><tr><td class="sc0 ec" onclick="iEdit(event,6,'name','emp')" title="แก้ไขชื่อ">นายประเวศ ต้นมลคลวัฒนา</td><td class="sc1 ec" onclick="iEdit(event,6,'nick','emp')" title="แก้ไขชื่อเล่น">ตาม</td><td class="sc2 ec" onclick="iEdit(event,6,'dayOff','emp')" title="แก้ไขวันหยุด">อ</td><td class="sc3 ec" onclick="toggleGrp(event,6)" title="คลิกเปลี่ยนกลุ่ม"><span class="be">บ่าย</span></td><td class="cW clickable" onclick="cycleCell(" 2026-06-21","นายประเวศ="" ต้นมลคลวัฒนา","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-22","นายประเวศ="" ต้นมลคลวัฒนา","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-06-23","นายประเวศ="" ต้นมลคลวัฒนา","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-06-24","นายประเวศ="" ต้นมลคลวัฒนา","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-06-25","นายประเวศ="" ต้นมลคลวัฒนา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-26","นายประเวศ="" ต้นมลคลวัฒนา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-27","นายประเวศ="" ต้นมลคลวัฒนา","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-06-28","นายประเวศ="" ต้นมลคลวัฒนา","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-29","นายประเวศ="" ต้นมลคลวัฒนา","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-06-30","นายประเวศ="" ต้นมลคลวัฒนา","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-07-01","นายประเวศ="" ต้นมลคลวัฒนา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-02","นายประเวศ="" ต้นมลคลวัฒนา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-03","นายประเวศ="" ต้นมลคลวัฒนา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-04","นายประเวศ="" ต้นมลคลวัฒนา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-05","นายประเวศ="" ต้นมลคลวัฒนา","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-06","นายประเวศ="" ต้นมลคลวัฒนา","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-07-07","นายประเวศ="" ต้นมลคลวัฒนา","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-07-08","นายประเวศ="" ต้นมลคลวัฒนา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-09","นายประเวศ="" ต้นมลคลวัฒนา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-10","นายประเวศ="" ต้นมลคลวัฒนา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-11","นายประเวศ="" ต้นมลคลวัฒนา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-12","นายประเวศ="" ต้นมลคลวัฒนา","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-13","นายประเวศ="" ต้นมลคลวัฒนา","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-07-14","นายประเวศ="" ต้นมลคลวัฒนา","h")"="" title="H">H</td><td class="cP clickable" onclick="cycleCell(" 2026-07-15","นายประเวศ="" ต้นมลคลวัฒนา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-16","นายประเวศ="" ต้นมลคลวัฒนา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-17","นายประเวศ="" ต้นมลคลวัฒนา","w")"="" title="W">W</td><td class="cL clickable" onclick="cycleCell(" 2026-07-18","นายประเวศ="" ต้นมลคลวัฒนา","10-19")"="" title="10-19">10-19</td></tr><tr><td class="sc0 ec" onclick="iEdit(event,7,'name','emp')" title="แก้ไขชื่อ">นายนที โพธิ์ทอง</td><td class="sc1 ec" onclick="iEdit(event,7,'nick','emp')" title="แก้ไขชื่อเล่น">บิว</td><td class="sc2 ec" onclick="iEdit(event,7,'dayOff','emp')" title="แก้ไขวันหยุด">พ</td><td class="sc3 ec" onclick="toggleGrp(event,7)" title="คลิกเปลี่ยนกลุ่ม"><span class="be">บ่าย</span></td><td class="cW clickable" onclick="cycleCell(" 2026-06-21","นายนที="" โพธิ์ทอง","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-22","นายนที="" โพธิ์ทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-23","นายนที="" โพธิ์ทอง","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-06-24","นายนที="" โพธิ์ทอง","h")"="" title="H">H</td><td class="cP clickable" onclick="cycleCell(" 2026-06-25","นายนที="" โพธิ์ทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-26","นายนที="" โพธิ์ทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-27","นายนที="" โพธิ์ทอง","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-06-28","นายนที="" โพธิ์ทอง","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-29","นายนที="" โพธิ์ทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-30","นายนที="" โพธิ์ทอง","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-07-01","นายนที="" โพธิ์ทอง","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-07-02","นายนที="" โพธิ์ทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-03","นายนที="" โพธิ์ทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-04","นายนที="" โพธิ์ทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-05","นายนที="" โพธิ์ทอง","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-06","นายนที="" โพธิ์ทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-07","นายนที="" โพธิ์ทอง","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-07-08","นายนที="" โพธิ์ทอง","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-07-09","นายนที="" โพธิ์ทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-10","นายนที="" โพธิ์ทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-11","นายนที="" โพธิ์ทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-12","นายนที="" โพธิ์ทอง","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-13","นายนที="" โพธิ์ทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-14","นายนที="" โพธิ์ทอง","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-07-15","นายนที="" โพธิ์ทอง","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-07-16","นายนที="" โพธิ์ทอง","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-17","นายนที="" โพธิ์ทอง","w")"="" title="W">W</td><td class="cL clickable" onclick="cycleCell(" 2026-07-18","นายนที="" โพธิ์ทอง","10-19")"="" title="10-19">10-19</td></tr><tr><td class="sc0 ec" onclick="iEdit(event,8,'name','emp')" title="แก้ไขชื่อ">นายเทียนชัย กุลธรเธียร</td><td class="sc1 ec" onclick="iEdit(event,8,'nick','emp')" title="แก้ไขชื่อเล่น">กาน</td><td class="sc2 ec" onclick="iEdit(event,8,'dayOff','emp')" title="แก้ไขวันหยุด">ศ</td><td class="sc3 ec" onclick="toggleGrp(event,8)" title="คลิกเปลี่ยนกลุ่ม"><span class="be">บ่าย</span></td><td class="cW clickable" onclick="cycleCell(" 2026-06-21","นายเทียนชัย="" กุลธรเธียร","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-22","นายเทียนชัย="" กุลธรเธียร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-23","นายเทียนชัย="" กุลธรเธียร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-24","นายเทียนชัย="" กุลธรเธียร","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-06-25","นายเทียนชัย="" กุลธรเธียร","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-06-26","นายเทียนชัย="" กุลธรเธียร","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-06-27","นายเทียนชัย="" กุลธรเธียร","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-06-28","นายเทียนชัย="" กุลธรเธียร","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-29","นายเทียนชัย="" กุลธรเธียร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-30","นายเทียนชัย="" กุลธรเธียร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-01","นายเทียนชัย="" กุลธรเธียร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-02","นายเทียนชัย="" กุลธรเธียร","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-07-03","นายเทียนชัย="" กุลธรเธียร","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-07-04","นายเทียนชัย="" กุลธรเธียร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-05","นายเทียนชัย="" กุลธรเธียร","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-06","นายเทียนชัย="" กุลธรเธียร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-07","นายเทียนชัย="" กุลธรเธียร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-08","นายเทียนชัย="" กุลธรเธียร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-09","นายเทียนชัย="" กุลธรเธียร","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-07-10","นายเทียนชัย="" กุลธรเธียร","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-07-11","นายเทียนชัย="" กุลธรเธียร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-12","นายเทียนชัย="" กุลธรเธียร","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-13","นายเทียนชัย="" กุลธรเธียร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-14","นายเทียนชัย="" กุลธรเธียร","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-07-15","นายเทียนชัย="" กุลธรเธียร","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-16","นายเทียนชัย="" กุลธรเธียร","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-07-17","นายเทียนชัย="" กุลธรเธียร","h")"="" title="H">H</td><td class="cL clickable" onclick="cycleCell(" 2026-07-18","นายเทียนชัย="" กุลธรเธียร","10-19")"="" title="10-19">10-19</td></tr><tr><td class="sc0 ec" onclick="iEdit(event,10,'name','emp')" title="แก้ไขชื่อ">นายรุ่งโรจน์ ศรีใส</td><td class="sc1 ec" onclick="iEdit(event,10,'nick','emp')" title="แก้ไขชื่อเล่น">โรจน์</td><td class="sc2 ec" onclick="iEdit(event,10,'dayOff','emp')" title="แก้ไขวันหยุด">ส</td><td class="sc3 ec" onclick="toggleGrp(event,10)" title="คลิกเปลี่ยนกลุ่ม"><span class="be">บ่าย</span></td><td class="cW clickable" onclick="cycleCell(" 2026-06-21","นายรุ่งโรจน์="" ศรีใส","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-22","นายรุ่งโรจน์="" ศรีใส","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-23","นายรุ่งโรจน์="" ศรีใส","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-24","นายรุ่งโรจน์="" ศรีใส","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-06-25","นายรุ่งโรจน์="" ศรีใส","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-26","นายรุ่งโรจน์="" ศรีใส","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-06-27","นายรุ่งโรจน์="" ศรีใส","h")"="" title="H">H</td><td class="cP clickable" onclick="cycleCell(" 2026-06-28","นายรุ่งโรจน์="" ศรีใส","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-29","นายรุ่งโรจน์="" ศรีใส","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-30","นายรุ่งโรจน์="" ศรีใส","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-01","นายรุ่งโรจน์="" ศรีใส","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-02","นายรุ่งโรจน์="" ศรีใส","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-03","นายรุ่งโรจน์="" ศรีใส","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-07-04","นายรุ่งโรจน์="" ศรีใส","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-07-05","นายรุ่งโรจน์="" ศรีใส","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-06","นายรุ่งโรจน์="" ศรีใส","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-07","นายรุ่งโรจน์="" ศรีใส","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-08","นายรุ่งโรจน์="" ศรีใส","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-09","นายรุ่งโรจน์="" ศรีใส","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-10","นายรุ่งโรจน์="" ศรีใส","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-07-11","นายรุ่งโรจน์="" ศรีใส","h")"="" title="H">H</td><td class="cW clickable" onclick="cycleCell(" 2026-07-12","นายรุ่งโรจน์="" ศรีใส","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-13","นายรุ่งโรจน์="" ศรีใส","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-14","นายรุ่งโรจน์="" ศรีใส","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-07-15","นายรุ่งโรจน์="" ศรีใส","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-16","นายรุ่งโรจน์="" ศรีใส","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-17","นายรุ่งโรจน์="" ศรีใส","w")"="" title="W">W</td><td class="cLH clickable" onclick="cycleCell(" 2026-07-18","นายรุ่งโรจน์="" ศรีใส","h")"="" title="H">H</td></tr><tr><td class="sc0 ec" onclick="iEdit(event,11,'name','emp')" title="แก้ไขชื่อ">นายชูเกียรติ อินทร์จำปา</td><td class="sc1 ec" onclick="iEdit(event,11,'nick','emp')" title="แก้ไขชื่อเล่น">แก้ว</td><td class="sc2 ec" onclick="iEdit(event,11,'dayOff','emp')" title="แก้ไขวันหยุด">อา</td><td class="sc3 ec" onclick="toggleGrp(event,11)" title="คลิกเปลี่ยนกลุ่ม"><span class="be">บ่าย</span></td><td class="cH clickable" onclick="cycleCell(" 2026-06-21","นายชูเกียรติ="" อินทร์จำปา","h")"="" title="H">H</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-22","นายชูเกียรติ="" อินทร์จำปา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-23","นายชูเกียรติ="" อินทร์จำปา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-24","นายชูเกียรติ="" อินทร์จำปา","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-06-25","นายชูเกียรติ="" อินทร์จำปา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-26","นายชูเกียรติ="" อินทร์จำปา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-27","นายชูเกียรติ="" อินทร์จำปา","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-06-28","นายชูเกียรติ="" อินทร์จำปา","h")"="" title="H">H</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-29","นายชูเกียรติ="" อินทร์จำปา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-30","นายชูเกียรติ="" อินทร์จำปา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-01","นายชูเกียรติ="" อินทร์จำปา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-02","นายชูเกียรติ="" อินทร์จำปา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-03","นายชูเกียรติ="" อินทร์จำปา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-04","นายชูเกียรติ="" อินทร์จำปา","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-07-05","นายชูเกียรติ="" อินทร์จำปา","h")"="" title="H">H</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-06","นายชูเกียรติ="" อินทร์จำปา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-07","นายชูเกียรติ="" อินทร์จำปา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-08","นายชูเกียรติ="" อินทร์จำปา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-09","นายชูเกียรติ="" อินทร์จำปา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-10","นายชูเกียรติ="" อินทร์จำปา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-11","นายชูเกียรติ="" อินทร์จำปา","w")"="" title="W">W</td><td class="cH clickable" onclick="cycleCell(" 2026-07-12","นายชูเกียรติ="" อินทร์จำปา","h")"="" title="H">H</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-13","นายชูเกียรติ="" อินทร์จำปา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-14","นายชูเกียรติ="" อินทร์จำปา","w")"="" title="W">W</td><td class="cP clickable" onclick="cycleCell(" 2026-07-15","นายชูเกียรติ="" อินทร์จำปา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-16","นายชูเกียรติ="" อินทร์จำปา","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-17","นายชูเกียรติ="" อินทร์จำปา","w")"="" title="W">W</td><td class="cL clickable" onclick="cycleCell(" 2026-07-18","นายชูเกียรติ="" อินทร์จำปา","10-19")"="" title="10-19">10-19</td></tr><tr class="os-sep-row"><td class="sc0" style="padding-left:14px"><i class="ti ti-users" style="font-size:12px;margin-right:5px;vertical-align:middle"></i>Outsource (3 คน)</td><td class="sc1"></td><td class="sc2"></td><td class="sc3"></td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="wk-s" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="wk-s" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="wk-s" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="wk-s" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td><td class="" style="color:var(--txt3);background:#f0fdf9">—</td></tr><tr class="os-row"><td class="sc0 ec" onclick="iEditOS(event,3,'name')" title="แก้ไข">Outsource บ่าย 1</td><td class="sc1 ec" onclick="iEditOS(event,3,'nick')" title="แก้ไข">OS4</td><td class="sc2 ec" onclick="iEditOS(event,3,'dayOff')" title="แก้ไขวันหยุด" style="font-size:11px;color:var(--txt2)">-</td><td class="sc3 ec" onclick="toggleOS(event,3)" title="คลิกเปลี่ยนกะ"><span class="bo">OS บ่าย</span></td><td class="cW clickable" onclick="cycleCell(" 2026-06-21","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-22","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-23","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-24","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-25","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-26","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-27","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-28","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-29","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-30","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-01","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-02","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-03","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-04","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-05","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-06","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-07","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-08","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-09","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-10","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-11","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-12","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-13","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-14","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-15","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-16","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-17","outsource="" บ่าย="" 1","w")"="" title="W">W</td><td class="cL clickable" onclick="cycleCell(" 2026-07-18","outsource="" บ่าย="" 1","10-19")"="" title="10-19">10-19</td></tr><tr class="os-row"><td class="sc0 ec" onclick="iEditOS(event,4,'name')" title="แก้ไข">Outsource บ่าย 2</td><td class="sc1 ec" onclick="iEditOS(event,4,'nick')" title="แก้ไข">OS5</td><td class="sc2 ec" onclick="iEditOS(event,4,'dayOff')" title="แก้ไขวันหยุด" style="font-size:11px;color:var(--txt2)">-</td><td class="sc3 ec" onclick="toggleOS(event,4)" title="คลิกเปลี่ยนกะ"><span class="bo">OS บ่าย</span></td><td class="cW clickable" onclick="cycleCell(" 2026-06-21","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-22","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-23","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-24","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-25","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-26","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-27","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-28","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-29","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-30","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-01","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-02","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-03","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-04","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-05","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-06","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-07","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-08","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-09","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-10","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-11","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-12","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-13","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-14","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-15","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-16","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-17","outsource="" บ่าย="" 2","w")"="" title="W">W</td><td class="cL clickable" onclick="cycleCell(" 2026-07-18","outsource="" บ่าย="" 2","10-19")"="" title="10-19">10-19</td></tr><tr class="os-row"><td class="sc0 ec" onclick="iEditOS(event,5,'name')" title="แก้ไข">Outsource บ่าย 3</td><td class="sc1 ec" onclick="iEditOS(event,5,'nick')" title="แก้ไข">OS6</td><td class="sc2 ec" onclick="iEditOS(event,5,'dayOff')" title="แก้ไขวันหยุด" style="font-size:11px;color:var(--txt2)">-</td><td class="sc3 ec" onclick="toggleOS(event,5)" title="คลิกเปลี่ยนกะ"><span class="bo">OS บ่าย</span></td><td class="cW clickable" onclick="cycleCell(" 2026-06-21","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-22","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-23","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-24","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-25","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-26","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-27","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-28","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-06-29","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-06-30","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-01","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-02","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-03","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-04","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-05","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-06","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-07","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-08","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-09","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-10","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-11","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-12","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable wk-s" onclick="cycleCell(" 2026-07-13","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-14","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-15","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-16","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cW clickable" onclick="cycleCell(" 2026-07-17","outsource="" บ่าย="" 3","w")"="" title="W">W</td><td class="cL clickable" onclick="cycleCell(" 2026-07-18","outsource="" บ่าย="" 3","10-19")"="" title="10-19">10-19</td></tr></tbody></table></div></div></div>
+</div>
+
+<!-- ═══ EMPLOYEES ═══ -->
+<div id="page-employees" class="page">
+  <div class="card">
+    <div class="card-title"><i class="ti ti-users"></i>พนักงานประจำ</div>
+    <div class="form-row no-print">
+      <div class="fg"><label>ชื่อ-สกุล</label><input id="ei-name" type="text" placeholder="นายชื่อ นามสกุล" style="width:200px"></div>
+      <div class="fg"><label>ชื่อเล่น</label><input id="ei-nick" type="text" placeholder="ชื่อเล่น" style="width:80px"></div>
+      <div class="fg"><label>วันหยุดประจำ</label>
+        <select id="ei-off">
+          <option value="0">อาทิตย์</option><option value="1">จันทร์</option><option value="2">อังคาร</option>
+          <option value="3">พุธ</option><option value="4">พฤหัส</option><option value="5">ศุกร์</option><option value="6">เสาร์</option>
+        </select>
+      </div>
+      <div class="fg"><label>กลุ่ม</label>
+        <select id="ei-grp"><option value="A">กลุ่ม A</option><option value="B">กลุ่ม B</option></select>
+      </div>
+      <div class="fg"><label>&nbsp;</label><button class="btn-add" onclick="addEmp()"><i class="ti ti-plus"></i>เพิ่ม</button></div>
+    </div>
+    <div style="overflow-x:auto">
+      <table class="mtbl">
+        <thead><tr><th>#</th><th>ชื่อ-สกุล</th><th>ชื่อเล่น</th><th>วันหยุด</th><th>กลุ่ม</th><th class="no-print"></th></tr></thead>
+        <tbody id="emp-body"><tr class="grp-hdr"><td colspan="6"><span class="ga">กลุ่ม A</span> — 6 คน</td></tr><tr><td style="color:var(--txt3)">1</td><td>นายวัชระ ถาลี</td><td>โทน</td><td>อังคาร</td><td><span class="ga">A</span></td><td class="no-print" style="white-space:nowrap"><button class="btn-edit" onclick="editEmp(0)">แก้ไข</button> <button class="btn-del" onclick="delEmp(0)">ลบ</button></td></tr><tr><td style="color:var(--txt3)">2</td><td>นายธิติ บุญเชิด</td><td>นนท์</td><td>อังคาร</td><td><span class="ga">A</span></td><td class="no-print" style="white-space:nowrap"><button class="btn-edit" onclick="editEmp(1)">แก้ไข</button> <button class="btn-del" onclick="delEmp(1)">ลบ</button></td></tr><tr><td style="color:var(--txt3)">3</td><td>นายจักริน พัดเพียเมือง</td><td>อ๋อง</td><td>ศุกร์</td><td><span class="ga">A</span></td><td class="no-print" style="white-space:nowrap"><button class="btn-edit" onclick="editEmp(2)">แก้ไข</button> <button class="btn-del" onclick="delEmp(2)">ลบ</button></td></tr><tr><td style="color:var(--txt3)">4</td><td>นายณัฐพล ชูศรีทอง</td><td>เบียร์</td><td>เสาร์</td><td><span class="ga">A</span></td><td class="no-print" style="white-space:nowrap"><button class="btn-edit" onclick="editEmp(3)">แก้ไข</button> <button class="btn-del" onclick="delEmp(3)">ลบ</button></td></tr><tr><td style="color:var(--txt3)">5</td><td>นายขจรศักดิ์ หอมหวาน</td><td>จร</td><td>อาทิตย์</td><td><span class="ga">A</span></td><td class="no-print" style="white-space:nowrap"><button class="btn-edit" onclick="editEmp(4)">แก้ไข</button> <button class="btn-del" onclick="delEmp(4)">ลบ</button></td></tr><tr><td style="color:var(--txt3)">6</td><td>นายสร้อยแก้ว ตาวงค์</td><td>เดท</td><td>จันทร์</td><td><span class="ga">A</span></td><td class="no-print" style="white-space:nowrap"><button class="btn-edit" onclick="editEmp(9)">แก้ไข</button> <button class="btn-del" onclick="delEmp(9)">ลบ</button></td></tr><tr class="grp-hdr"><td colspan="6"><span class="gb">กลุ่ม B</span> — 6 คน</td></tr><tr><td style="color:var(--txt3)">7</td><td>นายไชยวัฒน์ จำปาเณร</td><td>นิว</td><td>จันทร์</td><td><span class="gb">B</span></td><td class="no-print" style="white-space:nowrap"><button class="btn-edit" onclick="editEmp(5)">แก้ไข</button> <button class="btn-del" onclick="delEmp(5)">ลบ</button></td></tr><tr><td style="color:var(--txt3)">8</td><td>นายประเวศ ต้นมลคลวัฒนา</td><td>ตาม</td><td>อังคาร</td><td><span class="gb">B</span></td><td class="no-print" style="white-space:nowrap"><button class="btn-edit" onclick="editEmp(6)">แก้ไข</button> <button class="btn-del" onclick="delEmp(6)">ลบ</button></td></tr><tr><td style="color:var(--txt3)">9</td><td>นายนที โพธิ์ทอง</td><td>บิว</td><td>พุธ</td><td><span class="gb">B</span></td><td class="no-print" style="white-space:nowrap"><button class="btn-edit" onclick="editEmp(7)">แก้ไข</button> <button class="btn-del" onclick="delEmp(7)">ลบ</button></td></tr><tr><td style="color:var(--txt3)">10</td><td>นายเทียนชัย กุลธรเธียร</td><td>กาน</td><td>ศุกร์</td><td><span class="gb">B</span></td><td class="no-print" style="white-space:nowrap"><button class="btn-edit" onclick="editEmp(8)">แก้ไข</button> <button class="btn-del" onclick="delEmp(8)">ลบ</button></td></tr><tr><td style="color:var(--txt3)">11</td><td>นายรุ่งโรจน์ ศรีใส</td><td>โรจน์</td><td>เสาร์</td><td><span class="gb">B</span></td><td class="no-print" style="white-space:nowrap"><button class="btn-edit" onclick="editEmp(10)">แก้ไข</button> <button class="btn-del" onclick="delEmp(10)">ลบ</button></td></tr><tr><td style="color:var(--txt3)">12</td><td>นายชูเกียรติ อินทร์จำปา</td><td>แก้ว</td><td>อาทิตย์</td><td><span class="gb">B</span></td><td class="no-print" style="white-space:nowrap"><button class="btn-edit" onclick="editEmp(11)">แก้ไข</button> <button class="btn-del" onclick="delEmp(11)">ลบ</button></td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><i class="ti ti-user-bolt"></i>Outsource</div>
+    <div class="info-box no-print"><i class="ti ti-info-circle"></i>กะคงที่ ไม่หมุน · มีวันหยุดประจำได้ · แสดง H เฉพาะวันหยุดพิเศษ / วันหยุดประจำ</div>
+    <div class="form-row no-print">
+      <div class="fg"><label>ชื่อ / รหัส</label><input id="oi-name" type="text" placeholder="เช่น OS เช้า 1" style="width:160px"></div>
+      <div class="fg"><label>ชื่อเล่น</label><input id="oi-nick" type="text" placeholder="OS1" style="width:70px"></div>
+      <div class="fg"><label>กะประจำ</label>
+        <select id="oi-shift"><option value="morning">กะเช้า (07-16)</option><option value="evening">กะบ่าย (16-24)</option></select>
+      </div>
+      <div class="fg"><label>วันหยุดประจำ</label>
+        <select id="oi-off">
+          <option value="-1">— ไม่มี —</option>
+          <option value="0">อาทิตย์</option><option value="1">จันทร์</option><option value="2">อังคาร</option>
+          <option value="3">พุธ</option><option value="4">พฤหัส</option><option value="5">ศุกร์</option><option value="6">เสาร์</option>
+        </select>
+      </div>
+      <div class="fg"><label>&nbsp;</label><button class="btn-add" onclick="addOS()"><i class="ti ti-plus"></i>เพิ่ม</button></div>
+    </div>
+    <div style="overflow-x:auto">
+      <table class="mtbl">
+        <thead><tr><th>#</th><th>ชื่อ/รหัส</th><th>ชื่อเล่น</th><th>กะ</th><th>วันหยุด</th><th class="no-print"></th></tr></thead>
+        <tbody id="os-body"><tr class="grp-hdr"><td colspan="6"><span class="bo" style="font-size:12px">OS เช้า</span> — 3 คน</td></tr><tr><td style="color:var(--txt3)">1</td><td>Outsource เช้า 1</td><td>OS1</td><td><span class="bo">เช้า</span></td><td>—</td><td class="no-print" style="white-space:nowrap"><button class="btn-edit" onclick="editOS(0)">แก้ไข</button> <button class="btn-del" onclick="delOS(0)">ลบ</button></td></tr><tr><td style="color:var(--txt3)">2</td><td>Outsource เช้า 2</td><td>OS2</td><td><span class="bo">เช้า</span></td><td>—</td><td class="no-print" style="white-space:nowrap"><button class="btn-edit" onclick="editOS(1)">แก้ไข</button> <button class="btn-del" onclick="delOS(1)">ลบ</button></td></tr><tr><td style="color:var(--txt3)">3</td><td>Outsource เช้า 3</td><td>OS3</td><td><span class="bo">เช้า</span></td><td>—</td><td class="no-print" style="white-space:nowrap"><button class="btn-edit" onclick="editOS(2)">แก้ไข</button> <button class="btn-del" onclick="delOS(2)">ลบ</button></td></tr><tr class="grp-hdr"><td colspan="6"><span class="bo" style="font-size:12px">OS บ่าย</span> — 3 คน</td></tr><tr><td style="color:var(--txt3)">4</td><td>Outsource บ่าย 1</td><td>OS4</td><td><span class="bo">บ่าย</span></td><td>—</td><td class="no-print" style="white-space:nowrap"><button class="btn-edit" onclick="editOS(3)">แก้ไข</button> <button class="btn-del" onclick="delOS(3)">ลบ</button></td></tr><tr><td style="color:var(--txt3)">5</td><td>Outsource บ่าย 2</td><td>OS5</td><td><span class="bo">บ่าย</span></td><td>—</td><td class="no-print" style="white-space:nowrap"><button class="btn-edit" onclick="editOS(4)">แก้ไข</button> <button class="btn-del" onclick="delOS(4)">ลบ</button></td></tr><tr><td style="color:var(--txt3)">6</td><td>Outsource บ่าย 3</td><td>OS6</td><td><span class="bo">บ่าย</span></td><td>—</td><td class="no-print" style="white-space:nowrap"><button class="btn-edit" onclick="editOS(5)">แก้ไข</button> <button class="btn-del" onclick="delOS(5)">ลบ</button></td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PERIODS ═══ -->
+<div id="page-periods" class="page">
+  <div class="card">
+    <div class="card-title"><i class="ti ti-rotate-clockwise"></i>คาบการเปลี่ยนกะ</div>
+    <div class="info-box no-print"><i class="ti ti-info-circle"></i>ปกติ 28 วันต่อคาบ — ปรับได้เมื่อมีวันโปรฯ</div>
+    <div class="form-row no-print">
+      <div class="fg"><label>วันเริ่มคาบใหม่</label><input id="pi-start" type="date"></div>
+      <div class="fg"><label>กลุ่ม A อยู่กะ</label>
+        <select id="pi-grpa"><option value="morning">กะเช้า (07:00-16:00)</option><option value="evening">กะบ่าย (16:00-24:00)</option></select>
+      </div>
+      <div class="fg"><label>&nbsp;</label><button class="btn-add" onclick="addPeriod()"><i class="ti ti-plus"></i>เพิ่มคาบ</button></div>
+      <div class="fg"><label>&nbsp;</label><button class="btn-warn" onclick="autoGen()"><i class="ti ti-bolt"></i>สร้างอัตโนมัติ 12 คาบ</button></div>
+    </div>
+    <div id="period-list"><div><div class="per-item"><div class="per-num">1</div><div class="per-dates"><strong>18 มกราคม 2026</strong> — <strong>14 กุมภาพันธ์ 2026</strong><div class="per-days">28 วัน &nbsp;·&nbsp; <span class="ga">A = กะเช้า</span> &nbsp;<span class="gb">B = กะบ่าย</span></div></div><div class="no-print" style="display:flex;gap:6px;margin-left:auto"><button class="btn-edit" onclick="editPer(1)">แก้วันเริ่ม</button><button class="btn-del" onclick="delPer(1)">ลบ</button></div></div><div class="per-item"><div class="per-num">2</div><div class="per-dates"><strong>15 กุมภาพันธ์ 2026</strong> — <strong>14 มีนาคม 2026</strong><div class="per-days">28 วัน &nbsp;·&nbsp; <span class="ga">A = กะบ่าย</span> &nbsp;<span class="gb">B = กะเช้า</span></div></div><div class="no-print" style="display:flex;gap:6px;margin-left:auto"><button class="btn-edit" onclick="editPer(2)">แก้วันเริ่ม</button><button class="btn-del" onclick="delPer(2)">ลบ</button></div></div><div class="per-item"><div class="per-num">3</div><div class="per-dates"><strong>15 มีนาคม 2026</strong> — <strong>12 เมษายน 2026</strong><div class="per-days">29 วัน &nbsp;·&nbsp; <span class="ga">A = กะเช้า</span> &nbsp;<span class="gb">B = กะบ่าย</span></div></div><div class="no-print" style="display:flex;gap:6px;margin-left:auto"><button class="btn-edit" onclick="editPer(3)">แก้วันเริ่ม</button><button class="btn-del" onclick="delPer(3)">ลบ</button></div></div><div class="per-item"><div class="per-num">4</div><div class="per-dates"><strong>13 เมษายน 2026</strong> — <strong>22 พฤษภาคม 2026</strong><div class="per-days">40 วัน &nbsp;·&nbsp; <span class="ga">A = กะบ่าย</span> &nbsp;<span class="gb">B = กะเช้า</span></div></div><div class="no-print" style="display:flex;gap:6px;margin-left:auto"><button class="btn-edit" onclick="editPer(4)">แก้วันเริ่ม</button><button class="btn-del" onclick="delPer(4)">ลบ</button></div></div><div class="per-item"><div class="per-num">5</div><div class="per-dates"><strong>23 พฤษภาคม 2026</strong> — <strong>20 มิถุนายน 2026</strong><div class="per-days">29 วัน &nbsp;·&nbsp; <span class="ga">A = กะเช้า</span> &nbsp;<span class="gb">B = กะบ่าย</span></div></div><div class="no-print" style="display:flex;gap:6px;margin-left:auto"><button class="btn-edit" onclick="editPer(5)">แก้วันเริ่ม</button><button class="btn-del" onclick="delPer(5)">ลบ</button></div></div><div class="per-item"><div class="per-num">6</div><div class="per-dates"><strong>21 มิถุนายน 2026</strong> — <strong>18 กรกฎาคม 2026</strong><div class="per-days">28 วัน &nbsp;·&nbsp; <span class="ga">A = กะเช้า</span> &nbsp;<span class="gb">B = กะบ่าย</span></div></div><div class="no-print" style="display:flex;gap:6px;margin-left:auto"><button class="btn-edit" onclick="editPer(1781168457011)">แก้วันเริ่ม</button><button class="btn-del" onclick="delPer(1781168457011)">ลบ</button></div></div></div></div>
+  </div>
+  <div class="card">
+    <div class="card-title"><i class="ti ti-star"></i>วันโปรฯเพิ่มเติม</div>
+    <div class="warn-box no-print"><i class="ti ti-alert-circle"></i>ไฮไลต์อัตโนมัติ: 2/2 · 3/3 · 4/4 · 5/5 · 6/6 และวันที่ 15 · 25 · 28 ทุกเดือน</div>
+    <div class="form-row no-print">
+      <div class="fg"><label>วันที่เพิ่มเติม</label><input id="xp-date" type="date"></div>
+      <div class="fg"><label>&nbsp;</label><button class="btn-add" onclick="addExtraPro()"><i class="ti ti-plus"></i>เพิ่ม</button></div>
+    </div>
+    <div id="xpro-list"><div style="padding:12px 0;display:flex;flex-wrap:wrap;gap:6px"><span style="color:var(--txt3);font-size:13px">ยังไม่มี</span></div></div>
+  </div>
+</div>
+
+<!-- ═══ HOLIDAYS ═══ -->
+<div id="page-holidays" class="page">
+  <div class="card">
+    <div class="card-title"><i class="ti ti-beach"></i>วันหยุดพิเศษ</div>
+    <div class="info-box no-print"><i class="ti ti-info-circle"></i>วันหยุดนักขัตฤกษ์ / วันหยุดบริษัท — แสดงเป็น H ทุกคน</div>
+    <div class="form-row no-print">
+      <div class="fg"><label>วันที่</label><input id="hi-date" type="date"></div>
+      <div class="fg"><label>ชื่อวันหยุด</label><input id="hi-name" type="text" placeholder="เช่น วันสงกรานต์" style="width:180px"></div>
+      <div class="fg"><label>&nbsp;</label><button class="btn-add" onclick="addHol()"><i class="ti ti-plus"></i>เพิ่ม</button></div>
+    </div>
+    <div id="hol-list"></div>
+  </div>
+</div>
+
+<!-- ═══ MODALS ═══ -->
+<div class="overlay" id="emp-modal">
+  <div class="modal">
+    <div class="modal-title">✎ แก้ไขพนักงาน</div>
+    <input type="hidden" id="em-idx">
+    <div class="modal-row"><label>ชื่อ-สกุล</label><input id="em-name" type="text"></div>
+    <div class="modal-row"><label>ชื่อเล่น</label><input id="em-nick" type="text"></div>
+    <div class="modal-row"><label>วันหยุดประจำ</label>
+      <select id="em-off">
+        <option value="0">อาทิตย์</option><option value="1">จันทร์</option><option value="2">อังคาร</option>
+        <option value="3">พุธ</option><option value="4">พฤหัส</option><option value="5">ศุกร์</option><option value="6">เสาร์</option>
+      </select>
+    </div>
+    <div class="modal-row"><label>กลุ่ม</label>
+      <select id="em-grp"><option value="A">กลุ่ม A</option><option value="B">กลุ่ม B</option></select>
+    </div>
+    <div class="modal-btns">
+      <button class="btn-cancel" onclick="closeModal('emp-modal')">ยกเลิก</button>
+      <button class="btn-ok" onclick="saveEdit()">บันทึก</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="os-modal">
+  <div class="modal">
+    <div class="modal-title">✎ แก้ไข Outsource</div>
+    <input type="hidden" id="osm-idx">
+    <div class="modal-row"><label>ชื่อ/รหัส</label><input id="osm-name" type="text"></div>
+    <div class="modal-row"><label>ชื่อเล่น</label><input id="osm-nick" type="text"></div>
+    <div class="modal-row"><label>กะประจำ</label>
+      <select id="osm-shift"><option value="morning">กะเช้า</option><option value="evening">กะบ่าย</option></select>
+    </div>
+    <div class="modal-row"><label>วันหยุดประจำ</label>
+      <select id="osm-off">
+        <option value="-1">— ไม่มี —</option>
+        <option value="0">อาทิตย์</option><option value="1">จันทร์</option><option value="2">อังคาร</option>
+        <option value="3">พุธ</option><option value="4">พฤหัส</option><option value="5">ศุกร์</option><option value="6">เสาร์</option>
+      </select>
+    </div>
+    <div class="modal-btns">
+      <button class="btn-cancel" onclick="closeModal('os-modal')">ยกเลิก</button>
+      <button class="btn-ok" onclick="saveOSEdit()">บันทึก</button>
+    </div>
+  </div>
+</div>
+
+<!-- inline popup -->
+<div id="ipop" style="display: none; left: 348.469px; top: 257px;">
+  <div id="ipop-title">วันหยุดประจำ</div>
+  <input id="ipop-input" type="text" style="display: none;">
+  <select id="ipop-select" style="display: block;"><option value="0">อาทิตย์</option><option value="1">จันทร์</option><option value="2">อังคาร</option><option value="3">พุธ</option><option value="4">พฤหัส</option><option value="5">ศุกร์</option><option value="6">เสาร์</option></select>
+  <div class="ipop-btns">
+    <button class="btn-cancel" style="font-size:12px;padding:5px 10px" onclick="closeInline()">ยกเลิก</button>
+    <button class="btn-ok" style="font-size:12px;padding:5px 10px" onclick="saveInline()">บันทึก</button>
+  </div>
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<script>
+// ============================================================
+var SAVED_DATA = {"employees":[{"name":"นายวัชระ ถาลี","nick":"โทน","dayOff":2,"group":"A"},{"name":"นายธิติ บุญเชิด","nick":"นนท์","dayOff":2,"group":"A"},{"name":"นายจักริน พัดเพียเมือง","nick":"อ๋อง","dayOff":5,"group":"A"},{"name":"นายณัฐพล ชูศรีทอง","nick":"เบียร์","dayOff":6,"group":"A"},{"name":"นายขจรศักดิ์ หอมหวาน","nick":"จร","dayOff":0,"group":"A"},{"name":"นายไชยวัฒน์ จำปาเณร","nick":"นิว","dayOff":1,"group":"B"},{"name":"นายประเวศ ต้นมลคลวัฒนา","nick":"ตาม","dayOff":2,"group":"B"},{"name":"นายนที โพธิ์ทอง","nick":"บิว","dayOff":3,"group":"B"},{"name":"นายเทียนชัย กุลธรเธียร","nick":"กาน","dayOff":5,"group":"B"},{"name":"นายสร้อยแก้ว ตาวงค์","nick":"เดท","dayOff":1,"group":"A"},{"name":"นายรุ่งโรจน์ ศรีใส","nick":"โรจน์","dayOff":6,"group":"B"},{"name":"นายชูเกียรติ อินทร์จำปา","nick":"แก้ว","dayOff":0,"group":"B"}],"outsource":[{"name":"Outsource เช้า 1","nick":"OS1","shift":"morning","dayOff":-1},{"name":"Outsource เช้า 2","nick":"OS2","shift":"morning","dayOff":-1},{"name":"Outsource เช้า 3","nick":"OS3","shift":"morning","dayOff":-1},{"name":"Outsource บ่าย 1","nick":"OS4","shift":"evening","dayOff":-1},{"name":"Outsource บ่าย 2","nick":"OS5","shift":"evening","dayOff":-1},{"name":"Outsource บ่าย 3","nick":"OS6","shift":"evening","dayOff":-1}],"periods":[{"id":1,"start":"2026-01-18","groupA":"morning"},{"id":2,"start":"2026-02-15","groupA":"evening"},{"id":3,"start":"2026-03-15","groupA":"morning"},{"id":4,"start":"2026-04-13","groupA":"evening"},{"id":5,"start":"2026-05-23","groupA":"morning"},{"id":1781168457011,"start":"2026-06-21","groupA":"morning"}],"holidays":[{"date":"2026-01-01","name":"วันขึ้นปีใหม่"},{"date":"2026-02-02","name":"โปรฯ 2/2"},{"date":"2026-03-03","name":"โปรฯ 3/3"},{"date":"2026-04-04","name":"โปรฯ 4/4"},{"date":"2026-04-06","name":"วันจักรี"},{"date":"2026-04-13","name":"วันสงกรานต์"},{"date":"2026-04-14","name":"วันสงกรานต์"},{"date":"2026-04-15","name":"วันสงกรานต์"},{"date":"2026-05-01","name":"วันแรงงาน"},{"date":"2026-05-05","name":"โปรฯ 5/5"},{"date":"2026-06-03","name":"วันเฉลิมพระชนมพรรษา ร.10"},{"date":"2026-06-06","name":"โปรฯ 6/6"},{"date":"2026-07-28","name":"วันเฉลิมพระชนมพรรษา ร.10"},{"date":"2026-08-12","name":"วันแม่แห่งชาติ"},{"date":"2026-10-13","name":"วันนวมินทรมหาราช"},{"date":"2026-10-23","name":"วันปิยมหาราช"},{"date":"2026-12-05","name":"วันพ่อแห่งชาติ"},{"date":"2026-12-10","name":"วันรัฐธรรมนูญ"},{"date":"2026-12-31","name":"วันสิ้นปี"}],"extraPro":[],"overrides":{}};
+// ============================================================
+
+var DOW=['อา','จ','อ','พ','พฤ','ศ','ส'];
+var DOW_FULL=['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัส','ศุกร์','เสาร์'];
+var MON=['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+var MON_F=['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'];
+
+var DEF_EMP=[
+  {name:'นายวุฒิชัย นะรานรัมย์',nick:'ปู',dayOff:1,group:'A'},
+  {name:'นายวัชระ ถาลี',nick:'โทน',dayOff:2,group:'A'},
+  {name:'นายธิติ บุญเชิด',nick:'นนท์',dayOff:2,group:'A'},
+  {name:'นายอภิชัย อัคฮาด',nick:'จ่อย',dayOff:3,group:'A'},
+  {name:'นายเสกสรรค์ ไปแดน',nick:'เบ้น',dayOff:5,group:'A'},
+  {name:'นายณัฐพล ชูศรีทอง',nick:'เบียร์',dayOff:6,group:'A'},
+  {name:'นายขจรศักดิ์ หอมหวาน',nick:'จร',dayOff:0,group:'A'},
+  {name:'นายไชยวัฒน์ จำปาเณร',nick:'นิว',dayOff:1,group:'B'},
+  {name:'นายประเวศ ต้นมลคลวัฒนา',nick:'ตาม',dayOff:2,group:'B'},
+  {name:'นายนที โพธิ์ทอง',nick:'บิว',dayOff:3,group:'B'},
+  {name:'นายอภิวัฒน์ วิเชียรเครือ',nick:'เมตร',dayOff:5,group:'B'},
+  {name:'นายสร้อยแก้ว ตาวงค์',nick:'เดท',dayOff:5,group:'B'},
+  {name:'นายรุ่งโรจน์ ศรีใส',nick:'โรจน์',dayOff:6,group:'B'},
+  {name:'นายชูเกียรติ อินทร์จำปา',nick:'แก้ว',dayOff:0,group:'B'}
+];
+var DEF_OS=[
+  {name:'Outsource เช้า 1',nick:'OS1',shift:'morning',dayOff:-1},
+  {name:'Outsource เช้า 2',nick:'OS2',shift:'morning',dayOff:-1},
+  {name:'Outsource เช้า 3',nick:'OS3',shift:'morning',dayOff:-1},
+  {name:'Outsource บ่าย 1',nick:'OS4',shift:'evening',dayOff:-1},
+  {name:'Outsource บ่าย 2',nick:'OS5',shift:'evening',dayOff:-1},
+  {name:'Outsource บ่าย 3',nick:'OS6',shift:'evening',dayOff:-1}
+];
+var DEF_PER=[
+  {id:1,start:'2026-01-18',groupA:'morning'},
+  {id:2,start:'2026-02-15',groupA:'evening'},
+  {id:3,start:'2026-03-15',groupA:'morning'},
+  {id:4,start:'2026-04-13',groupA:'evening'},
+  {id:5,start:'2026-05-23',groupA:'morning'}
+];
+var DEF_HOL=[
+  {date:'2026-01-01',name:'วันขึ้นปีใหม่'},
+  {date:'2026-02-02',name:'โปรฯ 2/2'},{date:'2026-03-03',name:'โปรฯ 3/3'},
+  {date:'2026-04-04',name:'โปรฯ 4/4'},{date:'2026-04-06',name:'วันจักรี'},
+  {date:'2026-04-13',name:'วันสงกรานต์'},{date:'2026-04-14',name:'วันสงกรานต์'},{date:'2026-04-15',name:'วันสงกรานต์'},
+  {date:'2026-05-01',name:'วันแรงงาน'},{date:'2026-05-05',name:'โปรฯ 5/5'},
+  {date:'2026-06-03',name:'วันเฉลิมพระชนมพรรษา ร.10'},{date:'2026-06-06',name:'โปรฯ 6/6'},
+  {date:'2026-07-28',name:'วันเฉลิมพระชนมพรรษา ร.10'},
+  {date:'2026-08-12',name:'วันแม่แห่งชาติ'},{date:'2026-10-13',name:'วันนวมินทรมหาราช'},
+  {date:'2026-10-23',name:'วันปิยมหาราช'},{date:'2026-12-05',name:'วันพ่อแห่งชาติ'},
+  {date:'2026-12-10',name:'วันรัฐธรรมนูญ'},{date:'2026-12-31',name:'วันสิ้นปี'}
+];
+
+var D=SAVED_DATA||{};
+var employees=D.employees?JSON.parse(JSON.stringify(D.employees)):JSON.parse(JSON.stringify(DEF_EMP));
+var outsource=D.outsource?JSON.parse(JSON.stringify(D.outsource)):JSON.parse(JSON.stringify(DEF_OS));
+var periods=D.periods?JSON.parse(JSON.stringify(D.periods)):JSON.parse(JSON.stringify(DEF_PER));
+var holidays=D.holidays?JSON.parse(JSON.stringify(D.holidays)):JSON.parse(JSON.stringify(DEF_HOL));
+var extraPro=D.extraPro?JSON.parse(JSON.stringify(D.extraPro)):[];
+var overrides=D.overrides?JSON.parse(JSON.stringify(D.overrides)):{};
+var curPer=0,hasUnsaved=false;
+
+// ── Save ──
+var _fh=null;
+function _blob(){
+  var src=document.documentElement.outerHTML;
+  var data={employees:employees,outsource:outsource,periods:periods,holidays:holidays,extraPro:extraPro,overrides:overrides};
+  src=src.replace(/var SAVED_DATA = .*?;/,'var SAVED_DATA = '+JSON.stringify(data)+';');
+  return new Blob([src],{type:'text/html;charset=utf-8'});
+}
+function markUnsaved(){
+  hasUnsaved=true;
+  var b=document.getElementById('save-btn');if(b)b.classList.add('unsaved');
+  var n=document.getElementById('unsaved-banner');if(n)n.style.display='flex';
+}
+function markSaved(){
+  hasUnsaved=false;
+  var b=document.getElementById('save-btn');if(b)b.classList.remove('unsaved');
+  var n=document.getElementById('unsaved-banner');if(n)n.style.display='none';
+}
+function _savedFB(){
+  markSaved();
+  var b=document.getElementById('save-btn');if(!b)return;
+  var o=b.innerHTML;b.innerHTML='<i class="ti ti-check"></i>บันทึกแล้ว!';b.style.background='#f0fdf4';b.style.color='#166534';
+  setTimeout(function(){b.innerHTML=o;b.style.background='';b.style.color='';},2000);
+}
+async function saveFile(){
+  if(window.showSaveFilePicker){
+    try{
+      if(!_fh)_fh=await window.showSaveFilePicker({suggestedName:'shift-program.html',types:[{description:'HTML',accept:{'text/html':['.html']}}]});
+      var w=await _fh.createWritable();await w.write(_blob());await w.close();_savedFB();return;
+    }catch(e){if(e.name==='AbortError')return;_fh=null;}
+  }
+  var u=URL.createObjectURL(_blob()),a=document.createElement('a');
+  a.href=u;a.download='shift-program.html';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(u);
+  _savedFB();
+}
+function saveFileAs(){_fh=null;saveFile();}
+window.onbeforeunload=function(){if(hasUnsaved)return 'มีการแก้ไขที่ยังไม่ได้บันทึก';};
+
+// ── Date helpers ──
+function pd(s){var p=s.split('-');return new Date(+p[0],+p[1]-1,+p[2]);}
+function fd(d){var y=d.getFullYear(),m=d.getMonth()+1,dd=d.getDate();return y+'-'+(m<10?'0'+m:m)+'-'+(dd<10?'0'+dd:dd);}
+function addD(s,n){var d=pd(s);d.setDate(d.getDate()+n);return fd(d);}
+function diff(a,b){return Math.round((pd(b)-pd(a))/86400000);}
+function isPro(s){var d=pd(s),day=d.getDate(),m=d.getMonth()+1;if(day===m&&m>=2&&m<=6)return true;if(day===15||day===25||day===28)return true;return false;}
+function isHol(s){return holidays.some(function(h){return h.date===s;});}
+function holN(s){var h=holidays.find(function(x){return x.date===s;});return h?h.name:'';}
+function isXP(s){return extraPro.some(function(p){return p.date===s;});}
+function isLD(s,e){return s===e;}
+function sorted(){return periods.slice().sort(function(a,b){return a.start<b.start?-1:1;});}
+function perEnd(p,sp){var i=sp.findIndex(function(x){return x.id===p.id;});if(i+1<sp.length)return addD(sp[i+1].start,-1);return addD(p.start,27);}
+function mSpans(dates){var sp=[],cur=null;for(var i=0;i<dates.length;i++){var d=pd(dates[i]),m=d.getMonth(),y=d.getFullYear();if(!cur||cur.m!==m||cur.y!==y){if(cur)sp.push(cur);cur={m:m,y:y,count:1};}else cur.count++;}if(cur)sp.push(cur);return sp;}
+
+// ── Overrides ──
+function ovK(d,n){return d+'|'+n;}
+function getOv(d,n){return overrides[ovK(d,n)]||null;}
+function setOv(d,n,v){var k=ovK(d,n);if(v===null)delete overrides[k];else overrides[k]=v;}
+function cycleCell(ds,nm,av){
+  var c=getOv(ds,nm),nx;
+  if(c===null)nx=av==='W'?'H':'W';
+  else if(c==='H')nx='W';
+  else nx=null;
+  setOv(ds,nm,nx);markUnsaved();renderSchedule();
+}
+
+// ── Navigation ──
+function showPage(id,btn){
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.nav-tab').forEach(function(t){t.classList.remove('active');});
+  document.getElementById('page-'+id).classList.add('active');
+  if(btn)btn.classList.add('active');
+  if(id==='schedule')renderSchedule();
+  else if(id==='employees'){renderEmps();renderOS();}
+  else if(id==='periods')renderPeriods();
+  else if(id==='holidays')renderHols();
+}
+function clearOverrides(){
+  if(!confirm('ล้างการแก้ไขเซลล์ทั้งหมดในคาบนี้?'))return;
+  var sp=sorted();if(curPer>=sp.length)return;
+  var p=sp[curPer],e=perEnd(p,sp),c=p.start;
+  var ns=employees.map(function(x){return x.name;}).concat(outsource.map(function(x){return x.name;}));
+  while(c<=e){ns.forEach(function(n){delete overrides[ovK(c,n)];});c=addD(c,1);}
+  markUnsaved();renderSchedule();
+}
+
+// ── Schedule ──
+function buildSel(){
+  var sp=sorted(),h='';
+  for(var i=0;i<sp.length;i++){
+    var p=sp[i],e=perEnd(p,sp),sd=pd(p.start),ed=pd(e);
+    h+='<option value="'+i+'">คาบที่ '+(i+1)+'  ('+sd.getDate()+' '+MON[sd.getMonth()]+' — '+ed.getDate()+' '+MON[ed.getMonth()]+' '+(ed.getFullYear()+543)+')</option>';
+  }
+  document.getElementById('sel-period').innerHTML=h;
+  document.getElementById('sel-period').value=curPer;
+}
+function onPeriodChange(){curPer=+document.getElementById('sel-period').value;renderSchedule();}
+function prevPeriod(){if(curPer>0){curPer--;buildSel();renderSchedule();}}
+function nextPeriod(){var sp=sorted();if(curPer<sp.length-1){curPer++;buildSel();renderSchedule();}}
+
+function renderSchedule(){
+  var sp=sorted();
+  if(!sp.length){document.getElementById('schedule-out').innerHTML='<div class="card"><p style="color:var(--txt2)">ยังไม่มีคาบ</p></div>';buildSel();return;}
+  if(curPer>=sp.length)curPer=sp.length-1;
+  if(curPer<0)curPer=0;
+  buildSel();
+  var p=sp[curPer],endS=perEnd(p,sp),shA=p.groupA;
+  var dates=[],c=p.start;while(c<=endS){dates.push(c);c=addD(c,1);}
+  var gA=employees.filter(function(e){return e.group==='A';}),gB=employees.filter(function(e){return e.group==='B';});
+  var mG=shA==='morning'?gA:gB,eG=shA==='morning'?gB:gA;
+  var mN=shA==='morning'?'A':'B',eN=shA==='morning'?'B':'A';
+  var mOS=outsource.filter(function(o){return o.shift==='morning';}),eOS=outsource.filter(function(o){return o.shift==='evening';});
+  var sd=pd(p.start),ed=pd(endS);
+
+  document.getElementById('per-title').textContent='คาบที่ '+(curPer+1)+' — '+sd.getDate()+' '+MON_F[sd.getMonth()]+' '+sd.getFullYear()+' ถึง '+ed.getDate()+' '+MON_F[ed.getMonth()]+' '+ed.getFullYear();
+  var proCnt=0;for(var i=0;i<dates.length;i++){if(isPro(dates[i])||isXP(dates[i]))proCnt++;}
+  var ovCnt=0;for(var k in overrides){if(overrides.hasOwnProperty(k))ovCnt++;}
+  document.getElementById('per-sub').innerHTML=dates.length+' วัน · วันโปรฯ '+proCnt+' วัน'+(ovCnt?' · <span style="color:var(--pro)">แก้ไขเซลล์ '+ovCnt+' เซลล์</span>':'');
+
+  var h='<div class="tbl-wrap"><div class="tbl-scroll"><table>';
+  h+=buildSection('กะเช้า 07:00-16:00 — กลุ่ม '+mN,'morning',dates,endS,mG,mOS);
+  h+='<tr><td colspan="'+(4+dates.length)+'" style="background:var(--bg);height:8px;border:none"></td></tr>';
+  h+=buildSection('กะบ่าย 16:00-24:00 — กลุ่ม '+eN+' | วันสุดท้ายคาบ: 10:00-19:00 (ยกเว้นหยุดเสาร์)','evening',dates,endS,eG,eOS);
+  h+='</table></div></div>';
+
+  var pHols=holidays.filter(function(hh){return hh.date>=p.start&&hh.date<=endS;});
+  if(pHols.length){
+    h+='<div class="period-hols no-print"><h3><i class="ti ti-calendar-off" style="font-size:14px;vertical-align:middle;margin-right:4px"></i>วันหยุดพิเศษในคาบนี้</h3>';
+    for(var i=0;i<pHols.length;i++){var hd=pd(pHols[i].date);h+='<span class="hol-tag">'+hd.getDate()+' '+MON[hd.getMonth()]+' — '+pHols[i].name+'</span>';}
+    h+='</div>';
+  }
+  document.getElementById('schedule-out').innerHTML=h;
+}
+
+function buildSection(title,shift,dates,endS,group,osGroup){
+  var cols=4+dates.length;
+  var shCls=shift==='morning'?'sh-morning':'sh-evening';
+  var h='<thead>';
+  h+='<tr class="no-print"><th colspan="'+cols+'" class="'+shCls+'">'+title+'</th></tr>';
+
+  // Month row
+  var ms=mSpans(dates);
+  h+='<tr><th colspan="4" class="mh-label sc-hdr" style="border:1px solid #1e293b;color:#64748b;font-size:10px;letter-spacing:.3px;text-transform:uppercase">เดือน</th>';
+  for(var mi=0;mi<ms.length;mi++){
+    var bg=mi%2===0?'#1e3a8a':'#1d4ed8';
+    h+='<th colspan="'+ms[mi].count+'" class="mh" style="background:'+bg+'">'+MON[ms[mi].m]+' '+(ms[mi].y+543)+'</th>';
+  }
+  h+='</tr>';
+
+  // Date row
+  h+='<tr><th colspan="4" class="mh-label sc-hdr" style="border:1px solid #1e293b;color:#64748b;font-size:10px;letter-spacing:.3px;text-transform:uppercase">วันที่</th>';
+  for(var i=0;i<dates.length;i++){
+    var d=dates[i],dd=pd(d),ld=isLD(d,endS),hol=isHol(d),pro=isPro(d)||isXP(d),wk=dd.getDay()===1;
+    var cls='date-hdr'+(hol?' is-hol':ld?' is-last':pro?' is-pro':'')+(wk?' wk-s':'');
+    var tt=hol?holN(d):ld?'วันสุดท้าย 10-19':pro?'วันโปรฯ':'';
+    h+='<th class="'+cls+'"'+(tt?' title="'+tt+'"':'')+'>'+dd.getDate()+'</th>';
+  }
+  h+='</tr>';
+
+  // DOW row
+  h+='<tr class="dh-row"><th class="sc0">ชื่อ-สกุล</th><th class="sc1">เล่น</th><th class="sc2">หยุด</th><th class="sc3">กะ</th>';
+  for(var i=0;i<dates.length;i++){
+    var d=dates[i],dd=pd(d),ld=isLD(d,endS),hol=isHol(d),wk=dd.getDay()===1,we=dd.getDay()===0||dd.getDay()===6,mon=dd.getDay()===1;
+    var bg=hol?'background:#1a1f2e;':ld?'background:#1e1040;':'';
+    var cls=(wk?'wk-s ':'')+(we?'dow-we':mon?'dow-mon':'');
+    h+='<th class="'+cls+'" style="'+bg+'">'+DOW[dd.getDay()]+'</th>';
+  }
+  h+='</tr>';
+  h+='</thead><tbody>';
+
+  // Employee rows
+  for(var ei=0;ei<group.length;ei++){
+    var emp=group[ei],empIdx=employees.findIndex(function(e){return e.name===emp.name;});
+    var shB=shift==='morning'?'<span class="bm">เช้า</span>':'<span class="be">บ่าย</span>';
+    h+='<tr>';
+    h+='<td class="sc0 ec" onclick="iEdit(event,'+empIdx+',\'name\',\'emp\')" title="แก้ไขชื่อ">'+emp.name+'</td>';
+    h+='<td class="sc1 ec" onclick="iEdit(event,'+empIdx+',\'nick\',\'emp\')" title="แก้ไขชื่อเล่น">'+emp.nick+'</td>';
+    h+='<td class="sc2 ec" onclick="iEdit(event,'+empIdx+',\'dayOff\',\'emp\')" title="แก้ไขวันหยุด">'+DOW[emp.dayOff]+'</td>';
+    h+='<td class="sc3 ec" onclick="toggleGrp(event,'+empIdx+')" title="คลิกเปลี่ยนกลุ่ม">'+shB+'</td>';
+    for(var i=0;i<dates.length;i++){
+      var d=dates[i],hol=isHol(d),off=pd(d).getDay()===emp.dayOff,pro=isPro(d)||isXP(d),ld=isLD(d,endS);
+      var eveL=shift==='evening'&&ld&&emp.dayOff!==6;
+      var av=hol?'H':off?'H':eveL?'10-19':'W';
+      var ov=getOv(d,emp.name),dv=ov!==null?ov:av;
+      var cls;
+      if(ov!==null)cls=ov==='H'?'cOH':'cOW';
+      else if(hol)cls='cH';
+      else if(off)cls=ld&&shift==='evening'?'cLH':'cH';
+      else if(eveL)cls='cL';
+      else if(pro)cls='cP';
+      else cls='cW';
+      var wk=pd(d).getDay()===1;
+      var dJ=JSON.stringify(d),nJ=JSON.stringify(emp.name),aJ=JSON.stringify(av);
+      h+='<td class="'+cls+' clickable'+(wk?' wk-s':'')+'" onclick="cycleCell('+dJ+','+nJ+','+aJ+')" title="'+dv+'">'+dv+'</td>';
+    }
+    h+='</tr>';
+  }
+
+  // Outsource
+  if(osGroup.length){
+    h+='<tr class="os-sep-row"><td class="sc0" style="padding-left:14px"><i class="ti ti-users" style="font-size:12px;margin-right:5px;vertical-align:middle"></i>Outsource ('+osGroup.length+' คน)</td><td class="sc1"></td><td class="sc2"></td><td class="sc3"></td>';
+    for(var i=0;i<dates.length;i++){var wk=pd(dates[i]).getDay()===1;h+='<td class="'+(wk?'wk-s':'')+'" style="color:var(--txt3);background:#f0fdf9">—</td>';}
+    h+='</tr>';
+    for(var oi=0;oi<osGroup.length;oi++){
+      var os=osGroup[oi],osIdx=outsource.findIndex(function(x){return x.name===os.name;});
+      var osOff=os.dayOff!==undefined?os.dayOff:-1;
+      var shB=shift==='morning'?'<span class="bo">OS เช้า</span>':'<span class="bo">OS บ่าย</span>';
+      h+='<tr class="os-row">';
+      h+='<td class="sc0 ec" onclick="iEditOS(event,'+osIdx+',\'name\')" title="แก้ไข">'+os.name+'</td>';
+      h+='<td class="sc1 ec" onclick="iEditOS(event,'+osIdx+',\'nick\')" title="แก้ไข">'+os.nick+'</td>';
+      h+='<td class="sc2 ec" onclick="iEditOS(event,'+osIdx+',\'dayOff\')" title="แก้ไขวันหยุด" style="font-size:11px;color:var(--txt2)">'+(osOff>=0?DOW[osOff]:'-')+'</td>';
+      h+='<td class="sc3 ec" onclick="toggleOS(event,'+osIdx+')" title="คลิกเปลี่ยนกะ">'+shB+'</td>';
+      for(var i=0;i<dates.length;i++){
+        var d=dates[i],hol=isHol(d),off=osOff>=0&&pd(d).getDay()===osOff,ld=isLD(d,endS);
+        var eveL=shift==='evening'&&ld&&osOff!==6;
+        var av=hol?'H':off?'H':eveL?'10-19':'W';
+        var ov=getOv(d,os.name),dv=ov!==null?ov:av;
+        var cls;
+        if(ov!==null)cls=ov==='H'?'cOH':'cOW';
+        else if(hol||off)cls=ld&&shift==='evening'?'cLH':'cH';
+        else if(eveL)cls='cL';
+        else cls='cW';
+        var wk=pd(d).getDay()===1;
+        var dJ=JSON.stringify(d),nJ=JSON.stringify(os.name),aJ=JSON.stringify(av);
+        h+='<td class="'+cls+' clickable'+(wk?' wk-s':'')+'" onclick="cycleCell('+dJ+','+nJ+','+aJ+')" title="'+dv+'">'+dv+'</td>';
+      }
+      h+='</tr>';
+    }
+  }
+  h+='</tbody>';
+  return h;
+}
+
+// ── Inline edit ──
+var _iIdx=-1,_iField='',_iType='emp';
+function _showPop(e,title,isSelect,val){
+  var pop=document.getElementById('ipop'),inp=document.getElementById('ipop-input'),sel=document.getElementById('ipop-select');
+  document.getElementById('ipop-title').textContent=title;
+  if(isSelect){inp.style.display='none';sel.style.display='block';}
+  else{sel.style.display='none';inp.style.display='block';inp.value=val;setTimeout(function(){inp.focus();inp.select();},50);}
+  var r=e.target.getBoundingClientRect();
+  pop.style.left=Math.min(r.left,window.innerWidth-230)+'px';
+  pop.style.top=Math.min(r.bottom+4,window.innerHeight-160)+'px';
+  pop.style.display='block';
+}
+function iEdit(e,idx,field,type){
+  e.stopPropagation();_iIdx=idx;_iField=field;_iType=type||'emp';
+  var emp=employees[idx],sel=document.getElementById('ipop-select');
+  if(field==='dayOff'){
+    sel.innerHTML='<option value="0">อาทิตย์</option><option value="1">จันทร์</option><option value="2">อังคาร</option><option value="3">พุธ</option><option value="4">พฤหัส</option><option value="5">ศุกร์</option><option value="6">เสาร์</option>';
+    sel.value=emp.dayOff;
+    _showPop(e,'วันหยุดประจำ',true);
+  } else {
+    _showPop(e,field==='name'?'ชื่อ-สกุล':'ชื่อเล่น',false,emp[field]);
+  }
+}
+function iEditOS(e,idx,field){
+  e.stopPropagation();_iIdx=idx;_iField=field;_iType='os';
+  var os=outsource[idx],sel=document.getElementById('ipop-select');
+  if(field==='dayOff'){
+    sel.innerHTML='<option value="-1">— ไม่มี —</option><option value="0">อาทิตย์</option><option value="1">จันทร์</option><option value="2">อังคาร</option><option value="3">พุธ</option><option value="4">พฤหัส</option><option value="5">ศุกร์</option><option value="6">เสาร์</option>';
+    sel.value=os.dayOff!==undefined?os.dayOff:-1;
+    _showPop(e,'วันหยุดประจำ OS',true);
+  } else {
+    _showPop(e,field==='name'?'ชื่อ Outsource':'ชื่อเล่น',false,os[field]);
+  }
+}
+function saveInline(){
+  if(_iType==='os'){
+    if(_iField==='dayOff')outsource[_iIdx].dayOff=+document.getElementById('ipop-select').value;
+    else{var v=document.getElementById('ipop-input').value.trim();if(!v){closeInline();return;}outsource[_iIdx][_iField]=v;}
+  } else {
+    if(_iField==='dayOff')employees[_iIdx].dayOff=+document.getElementById('ipop-select').value;
+    else{var v=document.getElementById('ipop-input').value.trim();if(!v){closeInline();return;}employees[_iIdx][_iField]=v;}
+  }
+  markUnsaved();closeInline();renderSchedule();
+}
+function closeInline(){document.getElementById('ipop').style.display='none';}
+function toggleGrp(e,idx){e.stopPropagation();employees[idx].group=employees[idx].group==='A'?'B':'A';markUnsaved();renderSchedule();}
+function toggleOS(e,idx){e.stopPropagation();outsource[idx].shift=outsource[idx].shift==='morning'?'evening':'morning';markUnsaved();renderSchedule();}
+document.addEventListener('keydown',function(e){
+  if((e.ctrlKey||e.metaKey)&&e.key==='s'){e.preventDefault();saveFile();return;}
+  if(e.key==='Enter'&&document.getElementById('ipop').style.display==='block')saveInline();
+  if(e.key==='Escape')closeInline();
+});
+document.addEventListener('click',function(e){if(!document.getElementById('ipop').contains(e.target))closeInline();});
+
+// ── Employees ──
+function renderEmps(){
+  var h='',n=0,gA=employees.filter(function(e){return e.group==='A';}),gB=employees.filter(function(e){return e.group==='B';});
+  h+='<tr class="grp-hdr"><td colspan="6"><span class="ga">กลุ่ม A</span> — '+gA.length+' คน</td></tr>';
+  for(var j=0;j<employees.length;j++){var emp=employees[j];if(emp.group!=='A')continue;
+    h+='<tr><td style="color:var(--txt3)">'+(++n)+'</td><td>'+emp.name+'</td><td>'+emp.nick+'</td><td>'+DOW_FULL[emp.dayOff]+'</td><td><span class="ga">A</span></td>';
+    h+='<td class="no-print" style="white-space:nowrap"><button class="btn-edit" onclick="editEmp('+j+')">แก้ไข</button> <button class="btn-del" onclick="delEmp('+j+')">ลบ</button></td></tr>';}
+  h+='<tr class="grp-hdr"><td colspan="6"><span class="gb">กลุ่ม B</span> — '+gB.length+' คน</td></tr>';
+  for(var j=0;j<employees.length;j++){var emp=employees[j];if(emp.group!=='B')continue;
+    h+='<tr><td style="color:var(--txt3)">'+(++n)+'</td><td>'+emp.name+'</td><td>'+emp.nick+'</td><td>'+DOW_FULL[emp.dayOff]+'</td><td><span class="gb">B</span></td>';
+    h+='<td class="no-print" style="white-space:nowrap"><button class="btn-edit" onclick="editEmp('+j+')">แก้ไข</button> <button class="btn-del" onclick="delEmp('+j+')">ลบ</button></td></tr>';}
+  document.getElementById('emp-body').innerHTML=h;
+}
+function addEmp(){var n=document.getElementById('ei-name').value.trim();if(!n){alert('กรุณากรอกชื่อ');return;}
+  employees.push({name:n,nick:document.getElementById('ei-nick').value.trim(),dayOff:+document.getElementById('ei-off').value,group:document.getElementById('ei-grp').value});
+  document.getElementById('ei-name').value='';document.getElementById('ei-nick').value='';markUnsaved();renderEmps();}
+function editEmp(idx){var e=employees[idx];
+  document.getElementById('em-idx').value=idx;document.getElementById('em-name').value=e.name;
+  document.getElementById('em-nick').value=e.nick;document.getElementById('em-off').value=e.dayOff;
+  document.getElementById('em-grp').value=e.group;document.getElementById('emp-modal').classList.add('open');}
+function saveEdit(){var i=+document.getElementById('em-idx').value;
+  employees[i]={name:document.getElementById('em-name').value.trim(),nick:document.getElementById('em-nick').value.trim(),dayOff:+document.getElementById('em-off').value,group:document.getElementById('em-grp').value};
+  markUnsaved();closeModal('emp-modal');renderEmps();}
+function delEmp(idx){if(!confirm('ลบ "'+employees[idx].name+'"?'))return;employees.splice(idx,1);markUnsaved();renderEmps();}
+function closeModal(id){document.getElementById(id).classList.remove('open');}
+
+// ── Outsource ──
+function renderOS(){
+  var h='',n=0;
+  var mOS=outsource.filter(function(o){return o.shift==='morning';}),eOS=outsource.filter(function(o){return o.shift==='evening';});
+  h+='<tr class="grp-hdr"><td colspan="6"><span class="bo" style="font-size:12px">OS เช้า</span> — '+mOS.length+' คน</td></tr>';
+  for(var j=0;j<outsource.length;j++){var os=outsource[j];if(os.shift!=='morning')continue;
+    var dOff=os.dayOff!==undefined&&os.dayOff>=0?DOW_FULL[os.dayOff]:'—';
+    h+='<tr><td style="color:var(--txt3)">'+(++n)+'</td><td>'+os.name+'</td><td>'+os.nick+'</td><td><span class="bo">เช้า</span></td><td>'+dOff+'</td>';
+    h+='<td class="no-print" style="white-space:nowrap"><button class="btn-edit" onclick="editOS('+j+')">แก้ไข</button> <button class="btn-del" onclick="delOS('+j+')">ลบ</button></td></tr>';}
+  h+='<tr class="grp-hdr"><td colspan="6"><span class="bo" style="font-size:12px">OS บ่าย</span> — '+eOS.length+' คน</td></tr>';
+  for(var j=0;j<outsource.length;j++){var os=outsource[j];if(os.shift!=='evening')continue;
+    var dOff=os.dayOff!==undefined&&os.dayOff>=0?DOW_FULL[os.dayOff]:'—';
+    h+='<tr><td style="color:var(--txt3)">'+(++n)+'</td><td>'+os.name+'</td><td>'+os.nick+'</td><td><span class="bo">บ่าย</span></td><td>'+dOff+'</td>';
+    h+='<td class="no-print" style="white-space:nowrap"><button class="btn-edit" onclick="editOS('+j+')">แก้ไข</button> <button class="btn-del" onclick="delOS('+j+')">ลบ</button></td></tr>';}
+  document.getElementById('os-body').innerHTML=h;
+}
+function addOS(){var n=document.getElementById('oi-name').value.trim();if(!n){alert('กรุณากรอกชื่อ');return;}
+  outsource.push({name:n,nick:document.getElementById('oi-nick').value.trim(),shift:document.getElementById('oi-shift').value,dayOff:+document.getElementById('oi-off').value});
+  document.getElementById('oi-name').value='';document.getElementById('oi-nick').value='';markUnsaved();renderOS();}
+function editOS(idx){var o=outsource[idx];
+  document.getElementById('osm-idx').value=idx;document.getElementById('osm-name').value=o.name;
+  document.getElementById('osm-nick').value=o.nick;document.getElementById('osm-shift').value=o.shift;
+  document.getElementById('osm-off').value=o.dayOff!==undefined?o.dayOff:-1;
+  document.getElementById('os-modal').classList.add('open');}
+function saveOSEdit(){var i=+document.getElementById('osm-idx').value;
+  outsource[i]={name:document.getElementById('osm-name').value.trim(),nick:document.getElementById('osm-nick').value.trim(),shift:document.getElementById('osm-shift').value,dayOff:+document.getElementById('osm-off').value};
+  markUnsaved();closeModal('os-modal');renderOS();}
+function delOS(idx){if(!confirm('ลบ "'+outsource[idx].name+'"?'))return;outsource.splice(idx,1);markUnsaved();renderOS();}
+
+// ── Periods ──
+function renderPeriods(){
+  var sp=sorted(),h='<div>';
+  for(var i=0;i<sp.length;i++){var p=sp[i],e=perEnd(p,sp),sd=pd(p.start),ed=pd(e),days=diff(p.start,e)+1;
+    var shA=p.groupA==='morning'?'กะเช้า':'กะบ่าย',shB=p.groupA==='morning'?'กะบ่าย':'กะเช้า';
+    h+='<div class="per-item"><div class="per-num">'+(i+1)+'</div>';
+    h+='<div class="per-dates"><strong>'+sd.getDate()+' '+MON_F[sd.getMonth()]+' '+sd.getFullYear()+'</strong> — <strong>'+ed.getDate()+' '+MON_F[ed.getMonth()]+' '+ed.getFullYear()+'</strong>';
+    h+='<div class="per-days">'+days+' วัน &nbsp;·&nbsp; <span class="ga">A = '+shA+'</span> &nbsp;<span class="gb">B = '+shB+'</span></div></div>';
+    h+='<div class="no-print" style="display:flex;gap:6px;margin-left:auto"><button class="btn-edit" onclick="editPer('+p.id+')">แก้วันเริ่ม</button><button class="btn-del" onclick="delPer('+p.id+')">ลบ</button></div></div>';}
+  if(!h.includes('per-item'))h+='<p style="color:var(--txt3);padding:14px 16px">ยังไม่มีคาบ</p>';
+  h+='</div>';document.getElementById('period-list').innerHTML=h;
+  var xh='<div style="padding:12px 0;display:flex;flex-wrap:wrap;gap:6px">';
+  if(extraPro.length){for(var i=0;i<extraPro.length;i++){var d=pd(extraPro[i].date);xh+='<span style="background:var(--pro-bg);border:1px solid var(--pro-border);border-radius:20px;padding:4px 12px;font-size:12px;color:var(--pro);font-weight:600">'+d.getDate()+' '+MON[d.getMonth()]+' '+d.getFullYear()+' <button onclick="delXP('+i+')" style="background:none;border:none;cursor:pointer;color:var(--hol);font-weight:800;font-size:13px;padding:0 2px;margin-left:4px">×</button></span>';}}
+  else xh+='<span style="color:var(--txt3);font-size:13px">ยังไม่มี</span>';
+  xh+='</div>';document.getElementById('xpro-list').innerHTML=xh;
+}
+function addPeriod(){var s=document.getElementById('pi-start').value;if(!s){alert('กรุณาเลือกวันเริ่ม');return;}
+  periods.push({id:Date.now(),start:s,groupA:document.getElementById('pi-grpa').value});markUnsaved();renderPeriods();}
+function editPer(id){var p=periods.find(function(x){return x.id===id;});if(!p)return;
+  var v=prompt('แก้ไขวันเริ่มคาบ (YYYY-MM-DD):',p.start);if(!v)return;
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(v)){alert('รูปแบบไม่ถูกต้อง');return;}p.start=v;markUnsaved();renderPeriods();}
+function delPer(id){if(!confirm('ลบคาบนี้?'))return;periods=periods.filter(function(p){return p.id!==id;});markUnsaved();renderPeriods();}
+function autoGen(){var sp=sorted();if(!sp.length){alert('กรุณาเพิ่มคาบแรกก่อน');return;}
+  var last=sp[sp.length-1],le=perEnd(last,sp),nxt=addD(le,1),ng=last.groupA;
+  for(var i=0;i<12;i++){ng=ng==='morning'?'evening':'morning';periods.push({id:Date.now()+i,start:nxt,groupA:ng});nxt=addD(nxt,28);}
+  markUnsaved();renderPeriods();alert('สร้าง 12 คาบใหม่เรียบร้อย');}
+function addExtraPro(){var d=document.getElementById('xp-date').value;if(!d)return;
+  if(extraPro.some(function(p){return p.date===d;})){alert('มีวันนี้แล้ว');return;}extraPro.push({date:d});markUnsaved();renderPeriods();}
+function delXP(i){extraPro.splice(i,1);markUnsaved();renderPeriods();}
+
+// ── Holidays ──
+function renderHols(){
+  var s=holidays.slice().sort(function(a,b){return a.date<b.date?-1:1;}),h='<div>';
+  for(var i=0;i<s.length;i++){var hh=s[i],d=pd(hh.date);
+    var ri=holidays.findIndex(function(x){return x.date===hh.date&&x.name===hh.name;});
+    h+='<div class="hol-item"><span class="hol-date">'+d.getDate()+' '+MON[d.getMonth()]+' '+d.getFullYear()+'</span><span class="hol-dow">'+DOW_FULL[d.getDay()]+'</span><span class="hol-name">'+hh.name+'</span><button class="btn-del no-print" onclick="delHol('+ri+')">ลบ</button></div>';}
+  if(!s.length)h+='<p style="color:var(--txt3);padding:14px 16px">ยังไม่มีวันหยุด</p>';
+  h+='</div>';document.getElementById('hol-list').innerHTML=h;
+}
+function addHol(){var d=document.getElementById('hi-date').value,n=document.getElementById('hi-name').value.trim();
+  if(!d||!n){alert('กรุณากรอกให้ครบ');return;}holidays.push({date:d,name:n});markUnsaved();renderHols();
+  document.getElementById('hi-date').value='';document.getElementById('hi-name').value='';}
+function delHol(idx){if(!confirm('ลบ "'+holidays[idx].name+'"?'))return;holidays.splice(idx,1);markUnsaved();renderHols();}
+
+// ── Init ──
+(function(){
+  var today=fd(new Date()),sp=sorted(),best=0;
+  for(var i=0;i<sp.length;i++){if(sp[i].start<=today)best=i;}
+  curPer=best;buildSel();renderSchedule();
+})();
+</script>
+
+
+</body></html>
