@@ -697,7 +697,8 @@ async function saveFile(){
   _savedFB();
 }
 function saveFileAs(){_fh=null;saveFile();}
-window.onbeforeunload=function(){if(hasUnsaved)return 'มีการแก้ไขที่ยังไม่ได้บันทึก';};
+setInterval(function(){_lsSave();},3000);
+window.addEventListener('beforeunload',function(){_lsSave();});
 
 // ── Date helpers ──
 function pd(s){var p=s.split('-');return new Date(+p[0],+p[1]-1,+p[2]);}
