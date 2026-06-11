@@ -1050,6 +1050,7 @@ function delHol(idx){if(!confirm('ลบ "'+holidays[idx].name+'"?'))return;holi
   var today=fd(new Date()),sp=sorted(),best=0;
   for(var i=0;i<sp.length;i++){if(sp[i].start<=today)best=i;}
   curPer=best;buildSel();renderSchedule();
+  _lsSave();
 })();
 </script>
 </body>
